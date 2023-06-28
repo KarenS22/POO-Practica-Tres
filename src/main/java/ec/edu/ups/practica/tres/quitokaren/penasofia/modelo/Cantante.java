@@ -78,7 +78,12 @@ public class Cantante extends Persona{
     }
     
     public Disco buscarDisco(int id){
-        return discografia.get(id);
+        for (int i = 0; i < 10; i++) {
+            if(discografia.get(i).getCodigo() == id){
+                return discografia.get(i);
+            }
+        }
+        return null;
     }
 //getters and setters
     public String getNombreArtistico() {
