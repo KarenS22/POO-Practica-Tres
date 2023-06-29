@@ -23,6 +23,7 @@ public class ControladorCantante {
     
       public void crear(Cantante cantante){
         this.cantante = cantante;
+        cantante.calcularSalario();
         cantanteDAO.create(cantante);
     }
     
@@ -34,6 +35,7 @@ public class ControladorCantante {
     public boolean actualizar(Cantante cantante){
         Cantante cantanteEncontrado = this.buscar(cantante.getCodigo());
         if(cantanteEncontrado != null){
+            cantanteEncontrado.calcularSalario();
             cantanteDAO.update(cantante);
             return true;
         }
@@ -41,7 +43,7 @@ public class ControladorCantante {
     }
     
     public boolean eliminar(int codigo){
-        Cantante cantanteEncontrado = this.buscar(cantante.getCodigo());
+        Cantante cantanteEncontrado = this.buscar(codigo);
         if(cantanteEncontrado != null){
             cantanteDAO.delete(cantanteEncontrado);
             return true;
@@ -53,12 +55,13 @@ public class ControladorCantante {
         return cantanteDAO.findALL();
     }
                 
-    public void ingresarDisco(int codigoCantante, Disco disco){
+    public void ingresarDisco(int codigoCantante,  int codigoDisco, String nombreDisco, int anioDeLanzamiento){
         Cantante c = this.buscar(codigoCantante);
-        c.agregarDisco(disco);
+        c.agregarDisco(codigoDisco, nombreDisco, anioDeLanzamiento);
         cantanteDAO.update(c);
     }
     
+    //posible modificacion
     public Disco verDisco(int codigoCa, int codigoD){
         Cantante c = this.buscar(codigoCa);
         Disco d = c.buscarDisco(codigoD);
@@ -82,8 +85,9 @@ public class ControladorCantante {
         c.listaDisco();
     }
     
-    public void buscarPorNombreDeDisco(String nombreD){
+    public Cantante buscarPorNombreDeDisco(String nombreD){
         this.cantante = cantanteDAO.buscarPorNombreDeDisco(nombreD);
+        return this.cantante;
     }
     
 }

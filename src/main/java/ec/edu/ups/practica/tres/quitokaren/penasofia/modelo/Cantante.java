@@ -14,6 +14,7 @@ public class Cantante extends Persona{
     private List<Disco> discografia;
     
    // constructores
+    
     public Cantante(int codigo, String nombre, String apellido) {
         super(codigo, nombre, apellido);
     }
@@ -34,7 +35,7 @@ public class Cantante extends Persona{
     este aumentara */
     @Override
     public double calcularSalario() {
-        double salariob = super.getSalario();
+        double salariob = getSalario();
         double salariof = salariob;
         double aumento = 0;
         if (numeroDeSencillos > 10 && numeroDeGiras > 3){
@@ -46,15 +47,15 @@ public class Cantante extends Persona{
         } else if (discografia.size()>=5 ){
             salariof+=2000;
         }
-        super.setSalario(salariof + aumento);
+        salariof += aumento;
             
-        return super.getSalario();
+        return salariof;
     }
     
     /* metod agregarDisco se ingresa objeto tipo disco 
     que  sera añadido a la lista discografia */
-    public void agregarDisco(Disco disco){
-        discografia.add(disco);
+    public void agregarDisco(int codigoD, String nombreD, int anioDeLanzamiento){
+        discografia.add(new Disco(codigoD, nombreD, anioDeLanzamiento));
     }
     
     
@@ -78,7 +79,7 @@ public class Cantante extends Persona{
     }
     
     public Disco buscarDisco(int id){
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < discografia.size(); i++) {
             if(discografia.get(i).getCodigo() == id){
                 return discografia.get(i);
             }
