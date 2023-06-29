@@ -22,6 +22,8 @@ public class Cancion {
         this.letra = letra;
         this.tiempoEnMinutos = tiempoEnMinutos;
     }
+    
+    
 
 //getters and setters
     public int getCodigo() {
