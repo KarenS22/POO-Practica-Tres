@@ -10,6 +10,7 @@ import ec.edu.ups.practica.tres.quitokaren.penasofia.idao.ICantanteDAO;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaActualizarCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaBuscarCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaCrearCantante;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaEliminarCantante;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -46,6 +47,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private VentanaCrearCantante ventanaCrearCantante;
     private VentanaBuscarCantante ventanaBuscarCantante;
     private VentanaActualizarCantante ventanaActualizarCantante;
+    private VentanaEliminarCantante  ventanaEliminarCantante;
     
     private ControladorCantante controladorCantante;
     private ICantanteDAO cantanteDAO;
@@ -418,21 +420,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             desktopPane.add(ventanaActualizarCantante);
         }
         ventanaActualizarCantante.setVisible(true);
-        /*if (ventanaActualizarPersona == null) {
-            ventanaActualizarPersona = new VentanaActualizarPersona(personaControlador);
-            desktopPane.add(ventanaActualizarPersona);
-        }
-
-        ventanaActualizarPersona.setVisible(true);*/
     }//GEN-LAST:event_menuItemActualizarCantanteActionPerformed
 
     private void menuItemEliminarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarCantanteActionPerformed
-     /*   if (ventanaEliminarPersona == null) {
-            ventanaEliminarPersona = new VentanaEliminarPersona(personaControlador);
-            desktopPane.add(ventanaEliminarPersona);
+        if (ventanaEliminarCantante == null){
+            ventanaEliminarCantante = new VentanaEliminarCantante(controladorCantante);
+            desktopPane.add(ventanaEliminarCantante);
         }
-
-        ventanaEliminarPersona.setVisible(true);*/
+        ventanaEliminarCantante.setVisible(true);
     }//GEN-LAST:event_menuItemEliminarCantanteActionPerformed
 
     private void menuItemListarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarCantanteActionPerformed

@@ -340,7 +340,7 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
         String edadS = txtEdad.getText();
         int edad = Integer.parseInt(edadS);
         String nacionalidad = txtNacionalidad.getText();
-        String salarioS = txtCodigo.getText();
+        String salarioS = txtSalario.getText();
         double salario = Double.parseDouble(salarioS);
         String nombreArtistico = txtNombreArtistico.getText();
         String generoMusical = txtGeneroMusical.getText();

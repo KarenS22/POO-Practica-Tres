@@ -1,27 +1,25 @@
-package ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante;
-
-
-import ec.edu.ups.practica.tres.quitokaren.penasofia.controlador.ControladorCantante;
-import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Cantante;
-
-import javax.swing.JOptionPane;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
+package ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante;
+
+import ec.edu.ups.practica.tres.quitokaren.penasofia.controlador.ControladorCantante;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Cantante;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author PhD. Gabriel A. León Paredes
  */
-public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
+public class VentanaEliminarCantante extends javax.swing.JInternalFrame {
 
     private ControladorCantante controladorCantante;
 
     /**
-     * Creates new form VentanaActualizarPersona
+     * Creates new form VentanaEliminarPersona
      */
-    public VentanaActualizarCantante(ControladorCantante controladorCantante) {
+    public VentanaEliminarCantante(ControladorCantante controladorCantante) {
         initComponents();
         this.controladorCantante = controladorCantante;
     }
@@ -36,9 +34,8 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txtGeneroMusical = new javax.swing.JTextField();
-        lblSalarioCant = new java.awt.Label();
-        txtNSencillos = new javax.swing.JTextField();
+        lblNacionalidadCant = new java.awt.Label();
+        btnAceptar = new javax.swing.JButton();
         lblNombreArtisticoCant = new java.awt.Label();
         txtSalario = new javax.swing.JTextField();
         lblGeneroMusicalCant = new java.awt.Label();
@@ -58,58 +55,27 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
         lblNSencillosCant = new java.awt.Label();
         txtEdad = new javax.swing.JTextField();
         lblEdad = new java.awt.Label();
+        txtGeneroMusical = new javax.swing.JTextField();
         txtNacionalidad = new javax.swing.JTextField();
-        lblNacionalidadCant = new java.awt.Label();
-        btnAceptar = new javax.swing.JButton();
+        lblSalarioCant = new java.awt.Label();
+        txtNSencillos = new javax.swing.JTextField();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
-            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
-                formInternalFrameClosing(evt);
-            }
-            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
-            }
-        });
 
-        jPanel1.setBackground(new java.awt.Color(236, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Actualizar Persona", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 14))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Eliminar Persona", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 14))); // NOI18N
 
-        txtGeneroMusical.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        txtGeneroMusical.setForeground(new java.awt.Color(51, 102, 255));
-        txtGeneroMusical.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtGeneroMusical.setToolTipText("");
-        txtGeneroMusical.setEnabled(false);
-        txtGeneroMusical.addActionListener(new java.awt.event.ActionListener() {
+        lblNacionalidadCant.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblNacionalidadCant.setText("Nacionalidad");
+
+        btnAceptar.setText("Aceptar");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGeneroMusicalActionPerformed(evt);
-            }
-        });
-
-        lblSalarioCant.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        lblSalarioCant.setText("Salario");
-
-        txtNSencillos.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        txtNSencillos.setForeground(new java.awt.Color(51, 102, 255));
-        txtNSencillos.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtNSencillos.setToolTipText("");
-        txtNSencillos.setEnabled(false);
-        txtNSencillos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNSencillosActionPerformed(evt);
+                btnAceptarActionPerformed(evt);
             }
         });
 
@@ -201,19 +167,34 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
         lblEdad.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblEdad.setText("Edad");
 
+        txtGeneroMusical.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        txtGeneroMusical.setForeground(new java.awt.Color(51, 102, 255));
+        txtGeneroMusical.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtGeneroMusical.setToolTipText("");
+        txtGeneroMusical.setEnabled(false);
+        txtGeneroMusical.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGeneroMusicalActionPerformed(evt);
+            }
+        });
+
         txtNacionalidad.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         txtNacionalidad.setForeground(new java.awt.Color(51, 102, 255));
         txtNacionalidad.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtNacionalidad.setToolTipText("");
         txtNacionalidad.setEnabled(false);
 
-        lblNacionalidadCant.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        lblNacionalidadCant.setText("Nacionalidad");
+        lblSalarioCant.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblSalarioCant.setText("Salario");
 
-        btnAceptar.setText("Aceptar");
-        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+        txtNSencillos.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        txtNSencillos.setForeground(new java.awt.Color(51, 102, 255));
+        txtNSencillos.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtNSencillos.setToolTipText("");
+        txtNSencillos.setEnabled(false);
+        txtNSencillos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAceptarActionPerformed(evt);
+                txtNSencillosActionPerformed(evt);
             }
         });
 
@@ -269,7 +250,7 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
                             .addComponent(txtNConciertos, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNSencillos, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNGiras, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 48, Short.MAX_VALUE))
+                .addGap(0, 33, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAceptar)
@@ -337,7 +318,7 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnAceptar))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -359,18 +340,19 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
-        this.limpiarCampos();
-        this.cambiarEstadoCampos(false);
-    }//GEN-LAST:event_formInternalFrameClosing
-
-    private void txtGeneroMusicalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroMusicalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtGeneroMusicalActionPerformed
-
-    private void txtNSencillosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNSencillosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNSencillosActionPerformed
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        String codigoS = txtCodigo.getText();
+        int codigo = Integer.parseInt(codigoS);
+        int respuesta = JOptionPane.showConfirmDialog(this, "¿Estas seguro que deseas eliminar la persona?");
+        if(respuesta == JOptionPane.YES_OPTION){
+            if(controladorCantante.eliminar(codigo)){
+                JOptionPane.showMessageDialog(this, "La persona ha sido eliminada exitosamente! :)");
+                this.limpiarCampos();                
+            }else{
+                JOptionPane.showMessageDialog(this, "La persona no ha sido eliminada! :(");
+            }
+        }
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.limpiarCampos();
@@ -386,7 +368,7 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
             txtApellido.setText(cantan.getApellido());
             txtEdad.setText(String.valueOf(cantan.getEdad()));
             txtNacionalidad.setText(cantan.getNacionalidad());
-            txtSalario.setText(String.valueOf(cantan.getSalario()));
+            txtSalario.setText(String.valueOf(cantan.calcularSalario()));
             txtNombreArtistico.setText(cantan.getNombreArtistico());
             txtGeneroMusical.setText(cantan.getGeneroMusical());
             txtNSencillos.setText(String.valueOf(cantan.getNumeroDeSencillos()));
@@ -395,38 +377,15 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(this, "La persona con codigo " + codigo + " no ha sido encontrada!");
         }
-        this.cambiarEstadoCampos(true);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        String codigoS = txtCodigo.getText();
-        int codigo = Integer.parseInt(codigoS);
-        String nombre = txtNombre.getText();
-        String apellido = txtApellido.getText();
-        String edadS = txtEdad.getText();
-        int edad = Integer.parseInt(edadS);
-        String nacionalidad = txtNacionalidad.getText();
-        String salarioS = txtSalario.getText();
-        double salario = Double.parseDouble(salarioS);
-        String nombreArtistico = txtNombreArtistico.getText();
-        String generoMusical = txtGeneroMusical.getText();
-        String nSencillos = txtNSencillos.getText();
-        int numeroDeSencillos = Integer.parseInt(nSencillos);
-        String nConciertos = txtNConciertos.getText();
-        int numeroDeConciertos = Integer.parseInt(nConciertos);
-        String nGiras = txtNGiras.getText();
-        int numeroDeGiras = Integer.parseInt(nGiras);
-        
-        Cantante c = new Cantante(nombreArtistico, generoMusical, numeroDeSencillos, numeroDeConciertos, numeroDeGiras, codigo, nombre, apellido, edad, nacionalidad, salario);
-        if (controladorCantante.actualizar(c)){
-            JOptionPane.showMessageDialog(this, "El cantante ha sido actualizado exitosamente! :)");
-            this.limpiarCampos();
-            this.cambiarEstadoCampos(false);
-        }else{
-            JOptionPane.showMessageDialog(this, "El cantante no ha sido actualizada! :(");
-        
-        }
-    }//GEN-LAST:event_btnAceptarActionPerformed
+    private void txtGeneroMusicalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroMusicalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGeneroMusicalActionPerformed
+
+    private void txtNSencillosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNSencillosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNSencillosActionPerformed
 
     private void limpiarCampos() {
         this.txtCodigo.setText("");
@@ -440,20 +399,6 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
         this.txtNSencillos.setText("");
         this.txtNConciertos.setText("");
         this.txtNGiras.setText("");
-    }
-
-    private void cambiarEstadoCampos(boolean estado) {
-        this.txtCodigo.setEnabled(!estado);
-        this.txtNombre.setEnabled(estado);
-        this.txtApellido.setEnabled(estado);
-        this.txtEdad.setEnabled(estado);
-        this.txtNacionalidad.setEnabled(estado);
-        this.txtSalario.setEnabled(estado);
-        this.txtNombreArtistico.setEnabled(estado);
-        this.txtGeneroMusical.setEnabled(estado);
-        this.txtNSencillos.setEnabled(estado);
-        this.txtNConciertos.setEnabled(estado);
-        this.txtNGiras.setEnabled(estado);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

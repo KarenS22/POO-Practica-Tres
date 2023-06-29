@@ -9,7 +9,7 @@ public abstract class Persona {
     private String apellido;
     private int edad;
     private String nacionalidad;
-    private double salario;
+    double salario;
 
     //constructor
     
@@ -26,7 +26,7 @@ public abstract class Persona {
         this.apellido = apellido;
         this.edad = edad;
         this.nacionalidad = nacionalidad;
-        this.salario = salario;
+        this.salario = calcularSalario();
     }
     
     //getters and setters

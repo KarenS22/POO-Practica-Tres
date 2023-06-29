@@ -22,8 +22,6 @@ public class ControladorCantante {
     }
     
       public void crear(Cantante cantante){
-        this.cantante = cantante;
-        cantante.calcularSalario();
         cantanteDAO.create(cantante);
     }
     
@@ -35,7 +33,6 @@ public class ControladorCantante {
     public boolean actualizar(Cantante cantante){
         Cantante cantanteEncontrado = this.buscar(cantante.getCodigo());
         if(cantanteEncontrado != null){
-            cantanteEncontrado.calcularSalario();
             cantanteDAO.update(cantante);
             return true;
         }
