@@ -26,7 +26,7 @@ public abstract class Persona {
         this.apellido = apellido;
         this.edad = edad;
         this.nacionalidad = nacionalidad;
-        this.salario = calcularSalario();
+        this.salario = salario;
     }
     
     //getters and setters

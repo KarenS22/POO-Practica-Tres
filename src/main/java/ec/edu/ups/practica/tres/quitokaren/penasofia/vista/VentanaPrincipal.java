@@ -11,72 +11,31 @@ import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaActua
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaBuscarCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaCrearCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaEliminarCantante;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaListarCantante;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.disco.VentanaActualizarDisco;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.disco.VentanaAgregarDisco;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.disco.VentanaBuscarDisco;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.disco.VentanaEliminarDisco;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.disco.VentanaListarDisco;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-/*
-import ec.edu.ups.java.ejemplo.diez.controlador.OperadoraControlador;
-import ec.edu.ups.java.ejemplo.diez.vista.persona.VentanaBuscarPersona;
-import ec.edu.ups.java.ejemplo.diez.vista.persona.VentanaCrearPersona;
-import ec.edu.ups.java.ejemplo.diez.controlador.PersonaControlador;
-import ec.edu.ups.java.ejemplo.diez.controlador.TelefonoControlador;
-import ec.edu.ups.java.ejemplo.diez.dao.OperadoraDAO;
-import ec.edu.ups.java.ejemplo.diez.dao.PersonaDAO;
-import ec.edu.ups.java.ejemplo.diez.dao.TelefonoDAO;
-import ec.edu.ups.java.ejemplo.diez.idao.IOperadoraDAO;
-import ec.edu.ups.java.ejemplo.diez.idao.IPersonaDAO;
-import ec.edu.ups.java.ejemplo.diez.idao.ITelefonoDAO;
-import ec.edu.ups.java.ejemplo.diez.vista.operadora.VentanaActualizarOperadora;
-import ec.edu.ups.java.ejemplo.diez.vista.operadora.VentanaBuscarOperadora;
-import ec.edu.ups.java.ejemplo.diez.vista.operadora.VentanaCrearOperadora;
-import ec.edu.ups.java.ejemplo.diez.vista.operadora.VentanaEliminarOperadora;
-import ec.edu.ups.java.ejemplo.diez.vista.operadora.VentanaListarOperadora;
-import ec.edu.ups.java.ejemplo.diez.vista.persona.VentanaActualizarPersona;
-import ec.edu.ups.java.ejemplo.diez.vista.persona.VentanaEliminarPersona;
-import ec.edu.ups.java.ejemplo.diez.vista.persona.VentanaListarPersona;
-import ec.edu.ups.java.ejemplo.diez.vista.telefono.VentanaBuscarTelefono;
-import ec.edu.ups.java.ejemplo.diez.vista.telefono.VentanaCrearTelefono;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
-/**
- *
- * @author PhD. Gabriel A. León Paredes
- */
 public class VentanaPrincipal extends javax.swing.JFrame {
     private VentanaCrearCantante ventanaCrearCantante;
     private VentanaBuscarCantante ventanaBuscarCantante;
     private VentanaActualizarCantante ventanaActualizarCantante;
     private VentanaEliminarCantante  ventanaEliminarCantante;
-    
+    private VentanaListarCantante ventanaListarCantante;
+    private VentanaAgregarDisco ventanaAgregarDisco;
+    private VentanaBuscarDisco ventanaBuscarDisco;
+    private VentanaActualizarDisco ventanaActualizarDisco;
+    private VentanaEliminarDisco ventanaEliminarDisco;
+    private VentanaListarDisco ventanaListarDisco;
     private ControladorCantante controladorCantante;
     private ICantanteDAO cantanteDAO;
-/*
-    //ventanas personas
-    private VentanaCrearPersona ventanaCrearPersona;
-    private VentanaBuscarPersona ventanaBuscarPersona;
-    private VentanaActualizarPersona ventanaActualizarPersona;
-    private VentanaEliminarPersona ventanaEliminarPersona;
-    private VentanaListarPersona ventanaListarPersona;
-    //ventanas operadora
-    private VentanaCrearOperadora ventanaCrearOperadora;
-    private VentanaBuscarOperadora ventanaBuscarOperadora;
-    private VentanaActualizarOperadora ventanaActualizarOperadora;
-    private VentanaEliminarOperadora ventanaEliminarOperadora;
-    private VentanaListarOperadora ventanaListarOperadora;
-    //ventanas telefono
-    private VentanaCrearTelefono ventanaCrearTelefono;
-    private VentanaBuscarTelefono ventanaBuscarTelefono;
-    //controladores
-    private PersonaControlador personaControlador;
-    private OperadoraControlador operadoraControlador;
-    private TelefonoControlador telefonoControlador;
-    //DAOs
-    private IPersonaDAO personaDAO;
-    private IOperadoraDAO operadoraDAO;
-    private ITelefonoDAO telefonoDAO;
-    */
-    //Internacionalizacion
+    
+     //Internacionalizacion
     private Locale localizacion;
     private ResourceBundle mensajes;
 
@@ -88,20 +47,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         cantanteDAO = new CantanteDAO();
         controladorCantante = new ControladorCantante(cantanteDAO);
         localizacion = Locale.getDefault();
-        /*
-        personaDAO = new PersonaDAO();
-        personaControlador = new PersonaControlador(personaDAO);
-        operadoraDAO = new OperadoraDAO();
-        operadoraControlador = new OperadoraControlador(operadoraDAO);
-        telefonoDAO = new TelefonoDAO();
-        telefonoControlador = new TelefonoControlador(telefonoDAO);*/
-        //localizacion = Locale.getDefault();
-        //baseName es el nombre dle paquete pa que agrare los valores del spanish
-        //mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
         cambiarIdioma();
-        //System.out.println("Locale: " + localizacion);*/
     }
-
+    
     private void cambiarIdioma(){
         /*
         mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
@@ -236,12 +184,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         menuItemActualizarDisco.setMnemonic('a');
         menuItemActualizarDisco.setText("Actualizar");
+        menuItemActualizarDisco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemActualizarDiscoActionPerformed(evt);
+            }
+        });
         menuDisco.add(menuItemActualizarDisco);
 
         menuItemEliminarDisco.setText("Eliminar");
+        menuItemEliminarDisco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemEliminarDiscoActionPerformed(evt);
+            }
+        });
         menuDisco.add(menuItemEliminarDisco);
 
         menuItemListarDisco.setText("Listar");
+        menuItemListarDisco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemListarDiscoActionPerformed(evt);
+            }
+        });
         menuDisco.add(menuItemListarDisco);
 
         menuCantante.add(menuDisco);
@@ -431,12 +394,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemEliminarCantanteActionPerformed
 
     private void menuItemListarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarCantanteActionPerformed
-        /*if (ventanaListarPersona == null) {
-            ventanaListarPersona = new VentanaListarPersona(personaControlador);
-            desktopPane.add(ventanaListarPersona);
+        if (ventanaListarCantante == null){
+            ventanaListarCantante = new VentanaListarCantante(controladorCantante);
+            desktopPane.add(ventanaListarCantante);
         }
-
-        ventanaListarPersona.setVisible(true);*/
+        ventanaListarCantante.setVisible(true);
     }//GEN-LAST:event_menuItemListarCantanteActionPerformed
 
     private void menuItemCrearCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrearCompositorActionPerformed
@@ -485,22 +447,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemListarCompositorActionPerformed
 
     private void menuItemCrearDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrearDiscoActionPerformed
-       /*  if (ventanaCrearTelefono == null) {
-            ventanaCrearTelefono = new VentanaCrearTelefono(personaControlador, 
-                    operadoraControlador, telefonoControlador);
-            desktopPane.add(ventanaCrearTelefono);
+        if (ventanaAgregarDisco == null){
+            ventanaAgregarDisco = new VentanaAgregarDisco(controladorCantante);
+            desktopPane.add(ventanaAgregarDisco);
         }
-
-        ventanaCrearTelefono.setVisible(true);*/
+        ventanaAgregarDisco.setVisible(true);
     }//GEN-LAST:event_menuItemCrearDiscoActionPerformed
 
     private void menuItemBuscarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuscarDiscoActionPerformed
-    /*    if (ventanaBuscarTelefono == null) {
-            ventanaBuscarTelefono = new VentanaBuscarTelefono(telefonoControlador);
-            desktopPane.add(ventanaBuscarTelefono);
+        if (ventanaBuscarDisco == null) {
+            ventanaBuscarDisco = new VentanaBuscarDisco(controladorCantante);
+            desktopPane.add(ventanaBuscarDisco);
         }
 
-        ventanaBuscarTelefono.setVisible(true);*/
+        ventanaBuscarDisco.setVisible(true);
     }//GEN-LAST:event_menuItemBuscarDiscoActionPerformed
 
     private void menuItemEspanolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEspanolActionPerformed
@@ -520,6 +480,36 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         localizacion = new Locale("fr","FR");
         cambiarIdioma();
     }//GEN-LAST:event_menuItemFrancesActionPerformed
+
+    private void menuItemActualizarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActualizarDiscoActionPerformed
+        // TODO add your handling code here:
+        if (ventanaActualizarDisco == null) {
+            ventanaActualizarDisco = new VentanaActualizarDisco(controladorCantante);
+            desktopPane.add(ventanaActualizarDisco);
+        }
+
+        ventanaActualizarDisco.setVisible(true);
+    }//GEN-LAST:event_menuItemActualizarDiscoActionPerformed
+
+    private void menuItemEliminarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarDiscoActionPerformed
+        // TODO add your handling code here:
+        if (ventanaEliminarDisco == null) {
+            ventanaEliminarDisco = new VentanaEliminarDisco(controladorCantante);
+            desktopPane.add(ventanaEliminarDisco);
+        }
+
+        ventanaEliminarDisco.setVisible(true);
+    }//GEN-LAST:event_menuItemEliminarDiscoActionPerformed
+
+    private void menuItemListarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarDiscoActionPerformed
+        // TODO add your handling code here:
+        if (ventanaListarDisco == null) {
+            ventanaListarDisco = new VentanaListarDisco(controladorCantante);
+            desktopPane.add(ventanaListarDisco);
+        }
+
+        ventanaListarDisco.setVisible(true);
+    }//GEN-LAST:event_menuItemListarDiscoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -62,10 +62,13 @@ public class Cantante extends Persona {
     }
 
     //metod que actualiza datos de del disco
-    public void actualizarDisco(Disco disco) {
-        if (discografia.contains(disco)) {
-            int index = discografia.indexOf(disco);
-            discografia.set(index, disco);
+    public void actualizarDisco(int codigoD, String nombreD, int anioDeLanzamiento) {
+        for (int i = 0; i < discografia.size(); i++) {
+            if (discografia.get(i).getCodigo() == codigoD) {
+                Disco d = discografia.get(i);
+                d.setNombre(nombreD);
+                d.setAnioDeLazamiento(anioDeLanzamiento);
+            }
         }
     }
 

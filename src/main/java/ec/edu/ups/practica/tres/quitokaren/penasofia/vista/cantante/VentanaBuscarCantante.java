@@ -381,7 +381,7 @@ public class VentanaBuscarCantante extends javax.swing.JInternalFrame {
             txtApellido.setText(cantan.getApellido());
             txtEdad.setText(String.valueOf(cantan.getEdad()));
             txtNacionalidad.setText(cantan.getNacionalidad());
-            txtSalario.setText(String.valueOf(cantan.getSalario()));
+            txtSalario.setText(String.valueOf(cantan.calcularSalario()));
             txtNombreArtistico.setText(cantan.getNombreArtistico());
             txtGeneroMusical.setText(cantan.getGeneroMusical());
             txtNSencillos.setText(String.valueOf(cantan.getNumeroDeSencillos()));
