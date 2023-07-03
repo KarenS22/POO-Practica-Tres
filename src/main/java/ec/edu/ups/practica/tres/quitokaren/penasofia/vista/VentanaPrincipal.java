@@ -71,6 +71,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         desktopPane = new javax.swing.JDesktopPane();
+        jlblLogo = new javax.swing.JLabel();
+        jlblCantante = new javax.swing.JLabel();
+        lblCompositor = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         menuCantante = new javax.swing.JMenu();
         menuItemCrearCantante = new javax.swing.JMenuItem();
@@ -114,6 +118,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jlblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo v.png"))); // NOI18N
+        desktopPane.add(jlblLogo);
+        jlblLogo.setBounds(1070, 0, 210, 180);
+
+        jlblCantante.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jlblCantante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictogrammers-Material-Account-music.256.png"))); // NOI18N
+        jlblCantante.setText("Cantante");
+        desktopPane.add(jlblCantante);
+        jlblCantante.setBounds(90, 140, 350, 250);
+
+        lblCompositor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblCompositor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Music-User.256.png"))); // NOI18N
+        lblCompositor.setText("Compositor");
+        desktopPane.add(lblCompositor);
+        lblCompositor.setBounds(480, 140, 380, 240);
+
+        jLabel1.setText("jLabel1");
+        desktopPane.add(jLabel1);
+        jLabel1.setBounds(420, 430, 37, 16);
 
         menuCantante.setMnemonic('f');
         menuCantante.setText("Cantante");
@@ -346,12 +370,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 981, Short.MAX_VALUE)
+                .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1274, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -549,8 +575,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopPane;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JLabel jlblCantante;
+    private javax.swing.JLabel jlblLogo;
+    private javax.swing.JLabel lblCompositor;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuCancion;
     private javax.swing.JMenu menuCantante;

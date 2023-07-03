@@ -55,6 +55,7 @@ public class VentanaAgregarDisco extends javax.swing.JInternalFrame {
         btnAceptar = new javax.swing.JButton();
 
         setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);

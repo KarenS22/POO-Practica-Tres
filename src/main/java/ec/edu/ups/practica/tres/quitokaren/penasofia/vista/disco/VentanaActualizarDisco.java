@@ -54,9 +54,11 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
         lblCodigoDisco = new java.awt.Label();
         lblNombreDisco = new java.awt.Label();
         lblAnioLanzamientoDisco = new java.awt.Label();
+        btnBuscarDisco = new javax.swing.JButton();
         btnAceptar = new javax.swing.JButton();
 
         setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
@@ -210,6 +212,7 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
         txtCodigoDisco.setForeground(new java.awt.Color(51, 102, 255));
         txtCodigoDisco.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtCodigoDisco.setToolTipText("Ingrese el codigo del cantante");
+        txtCodigoDisco.setEnabled(false);
 
         txtNombreDisco.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         txtNombreDisco.setForeground(new java.awt.Color(51, 102, 255));
@@ -237,6 +240,13 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
         lblAnioLanzamientoDisco.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblAnioLanzamientoDisco.setText("Año de lanzamiento");
 
+        btnBuscarDisco.setText("Buscar");
+        btnBuscarDisco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarDiscoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -252,15 +262,22 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
                     .addComponent(txtAnioLanzamientoDisco, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNombreDisco, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtCodigoDisco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 342, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnBuscarDisco)
+                .addGap(0, 252, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtCodigoDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
+                        .addComponent(lblCodigoDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCodigoDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscarDisco))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNombreDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -268,8 +285,7 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
                         .addGap(19, 19, 19)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAnioLanzamientoDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAnioLanzamientoDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblCodigoDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtAnioLanzamientoDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -302,7 +318,7 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -357,13 +373,32 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
         int anioDeLanzamiento = Integer.parseInt(txtAnioLanzamientoDisco.getText());
         boolean d = controladorCantante.actualizarDisco(codigoC, codigoDisco, nombre, anioDeLanzamiento);
         if (d == true) {
-            JOptionPane.showMessageDialog(this, "El disco ha sido eliminado exitosamente! :)");
+            JOptionPane.showMessageDialog(this, "El disco ha sido actualizado exitosamente! :)");
             this.limpiarCampos();
         } else {
             JOptionPane.showMessageDialog(this, "El disco no ha sido eliminado! :(");
         }
 
     }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void btnBuscarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDiscoActionPerformed
+        int codigoC = Integer.parseInt(txtCodigo.getText());
+        String codigoSD = txtCodigoDisco.getText();
+        int codigoDisco = Integer.parseInt(codigoSD);
+
+        Disco disco = controladorCantante.verDisco(codigoC, codigoDisco);
+        if (disco != null){
+            txtCodigoDisco.setText(String.valueOf(disco.getCodigo()));
+            txtNombreDisco.setText(disco.getNombre());
+            txtAnioLanzamientoDisco.setText(String.valueOf(disco.getAnioDeLazamiento()));
+            this.cambiarEstadoCampos(true);
+            txtCodigo.setEnabled(false);
+            txtCodigoDisco.setEnabled(false);
+        }else{
+            JOptionPane.showMessageDialog(this, "El disco con codigo " + txtCodigoDisco.getText() + " no ha sido encontrado! :(");
+
+        }
+    }//GEN-LAST:event_btnBuscarDiscoActionPerformed
 
     private void limpiarCampos() {
         this.txtCodigo.setText("");
@@ -386,6 +421,7 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscarDisco;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

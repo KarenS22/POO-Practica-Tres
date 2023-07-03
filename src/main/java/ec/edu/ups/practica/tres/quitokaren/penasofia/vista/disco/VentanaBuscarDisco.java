@@ -56,6 +56,7 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
         btnBuscarDisco = new javax.swing.JButton();
 
         setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
@@ -209,6 +210,7 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
         txtCodigoDisco.setForeground(new java.awt.Color(51, 102, 255));
         txtCodigoDisco.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtCodigoDisco.setToolTipText("Ingrese el codigo del cantante");
+        txtCodigoDisco.setEnabled(false);
 
         txtNombreDisco.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         txtNombreDisco.setForeground(new java.awt.Color(51, 102, 255));
@@ -237,7 +239,6 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
         lblAnioLanzamientoDisco.setText("Año de lanzamiento");
 
         btnBuscarDisco.setText("Buscar");
-        btnBuscarDisco.setActionCommand("Buscar");
         btnBuscarDisco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarDiscoActionPerformed(evt);
@@ -330,6 +331,7 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
             txtApellido.setText(cantante.getApellido());
             txtNombreArtistico.setText(cantante.getNombreArtistico());
             txtGeneroMusical.setText(cantante.getGeneroMusical());
+            
             this.cambiarEstadoCampos(true);
         } else {
             JOptionPane.showMessageDialog(this, "El cantante con codigo " + codigo + " no ha sido encontrado!");
@@ -343,7 +345,7 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
         // TODO add your handling code here:
         this.limpiarCampos();
-        //this.cambiarEstadoCampos(false);
+        this.cambiarEstadoCampos(false);
     }//GEN-LAST:event_formInternalFrameClosing
 
     private void txtAnioLanzamientoDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioLanzamientoDiscoActionPerformed
@@ -360,10 +362,10 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
             txtCodigoDisco.setText(String.valueOf(disco.getCodigo()));
             txtNombreDisco.setText(disco.getNombre());
             txtAnioLanzamientoDisco.setText(String.valueOf(disco.getAnioDeLazamiento()));
-            this.limpiarCampos();
             this.cambiarEstadoCampos(false);
+           // txtCodigo.setEnabled(true);
         }else{
-            JOptionPane.showMessageDialog(this, "El disco con codigo" + txtCodigoDisco.getText() + "no ha sido encontrado! :(");
+            JOptionPane.showMessageDialog(this, "El disco con codigo " + txtCodigoDisco.getText() + "no ha sido encontrado! :(");
 
         }
     }//GEN-LAST:event_btnBuscarDiscoActionPerformed
