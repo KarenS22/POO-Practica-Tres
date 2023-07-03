@@ -80,6 +80,7 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(236, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Buscar Cantante", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 14))); // NOI18N
+        jPanel1.setPreferredSize(new java.awt.Dimension(860, 206));
 
         txtCodigo.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         txtCodigo.setForeground(new java.awt.Color(51, 102, 255));
@@ -98,6 +99,7 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
         txtApellido.setToolTipText("");
         txtApellido.setEnabled(false);
 
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Find-User.24.png"))); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +165,7 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtNombreArtistico, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtGeneroMusical, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 72, Short.MAX_VALUE))
+                .addGap(0, 229, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,9 +195,10 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
                                     .addComponent(lblGeneroMusicalCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtGeneroMusical, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(lblCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cancel.24.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,6 +208,7 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
 
         jPanel2.setBackground(new java.awt.Color(236, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Buscar Disco", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 14))); // NOI18N
+        jPanel2.setPreferredSize(new java.awt.Dimension(860, 168));
 
         txtCodigoDisco.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         txtCodigoDisco.setForeground(new java.awt.Color(51, 102, 255));
@@ -238,6 +242,7 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
         lblAnioLanzamientoDisco.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblAnioLanzamientoDisco.setText("Año de lanzamiento");
 
+        btnBuscarDisco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Search.24.png"))); // NOI18N
         btnBuscarDisco.setText("Buscar");
         btnBuscarDisco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,7 +267,7 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
                     .addComponent(txtCodigoDisco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscarDisco)
-                .addGap(0, 252, Short.MAX_VALUE))
+                .addGap(0, 401, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

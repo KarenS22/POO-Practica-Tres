@@ -6,22 +6,44 @@ package ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante;
 
 import ec.edu.ups.practica.tres.quitokaren.penasofia.controlador.ControladorCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Cantante;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
 
-/**
- *
- * @author PhD. Gabriel A. León Paredes
- */
+
 public class VentanaEliminarCantante extends javax.swing.JInternalFrame {
 
     private ControladorCantante controladorCantante;
-
+    private ResourceBundle mensajes;
     /**
      * Creates new form VentanaEliminarPersona
      */
     public VentanaEliminarCantante(ControladorCantante controladorCantante) {
         initComponents();
         this.controladorCantante = controladorCantante;
+    }
+    
+    
+        public void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
+        lblNombre.setText(mensajes.getString("lbl.nombre"));
+        lblApellido.setText(mensajes.getString("lbl.apellido"));
+        lblCodigo.setText(mensajes.getString("lbl.codigo"));
+        lblEdad.setText(mensajes.getString("lbl.edad"));
+        lblSalarioCant.setText(mensajes.getString("lbl.salario"));
+        lblNacionalidadCant.setText(mensajes.getString("lbl.nacionalidad"));
+        lblNombreArtisticoCant.setText(mensajes.getString("lbl.nombreArtistico"));
+        lblGeneroMusicalCant.setText(mensajes.getString("lbl.generoMusical"));
+        lblNSencillosCant.setText(mensajes.getString("lbl.nSencillos"));
+        lblNConciertosCant.setText(mensajes.getString("lbl.nConciertos"));
+        lblNGirasCant.setText(mensajes.getString("lbl.nGiras"));
+        btnBuscar.setText(mensajes.getString("menu.item.buscar"));
+        btnCancelar.setText(mensajes.getString("btn.Cancelar"));
+        String borderTitle = mensajes.getString("jpanel.elimCant");
+        Border border = BorderFactory.createTitledBorder(borderTitle);
+        jPanel1.setBorder(border);
     }
 
     /**
@@ -66,12 +88,14 @@ public class VentanaEliminarCantante extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(229, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Eliminar Persona", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 14))); // NOI18N
+        jPanel1.setPreferredSize(new java.awt.Dimension(860, 372));
 
         lblNacionalidadCant.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblNacionalidadCant.setText("Nacionalidad");
 
+        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Delete-user.24.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,6 +159,7 @@ public class VentanaEliminarCantante extends javax.swing.JInternalFrame {
         lblApellido.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblApellido.setText("Apellido");
 
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cancel.24.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +170,7 @@ public class VentanaEliminarCantante extends javax.swing.JInternalFrame {
         lblNConciertosCant.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblNConciertosCant.setText("Numero de Conciertos");
 
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Find-User.24.png"))); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,7 +276,7 @@ public class VentanaEliminarCantante extends javax.swing.JInternalFrame {
                             .addComponent(txtNConciertos, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNSencillos, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNGiras, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 33, Short.MAX_VALUE))
+                .addGap(0, 158, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAceptar)
@@ -318,7 +344,7 @@ public class VentanaEliminarCantante extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnAceptar))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -333,7 +359,7 @@ public class VentanaEliminarCantante extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

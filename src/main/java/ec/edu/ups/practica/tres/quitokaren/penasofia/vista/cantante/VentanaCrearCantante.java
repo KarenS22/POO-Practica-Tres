@@ -4,29 +4,23 @@
  */
 package ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante;
 
-/*
-import ec.edu.ups.java.ejemplo.diez.controlador.PersonaControlador;
-import ec.edu.ups.java.ejemplo.diez.modelo.Persona;*/
 import ec.edu.ups.practica.tres.quitokaren.penasofia.controlador.ControladorCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Cantante;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
 
-/**
- *
- * @author PhD. Gabriel A. León Paredes
- */
 public class VentanaCrearCantante extends javax.swing.JInternalFrame {
 
     private ControladorCantante controladorCantante;
     /*private PersonaControlador personaControlador;*/
     private ResourceBundle mensajes;
-    String localizacion = Locale.getDefault().getLanguage();
 
     /**
      * Creates new form VentanaCrearPersona
@@ -34,16 +28,28 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
     public VentanaCrearCantante(ControladorCantante controladorCantante) {
         initComponents();
         this.controladorCantante = controladorCantante;
-        //this.personaControlador = personaControlador;
+
     }
 
-    private void cambiarIdioma(Locale localizacion) {
-        /*  mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
-        lblNombreArtistico.setText(mensajes.getString("menu.persona"));
-        lblGeneroMusical.setText(mensajes.getString("menu.operadora"));
-        lblNSencillos.setText(mensajes.getString("menu.telefono"));
-        //menuOpciones.setText(mensajes.getString("menu.opciones"));
-        //menuIdiomas.setText(mensajes.getString("menu.idiomas"));*/
+    public void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
+        lblNombreCantante.setText(mensajes.getString("lbl.nombre"));
+        lblApellidoCantante.setText(mensajes.getString("lbl.apellido"));
+        lblCodigoCantante.setText(mensajes.getString("lbl.codigo"));
+        lblEdad.setText(mensajes.getString("lbl.edad"));
+        lblSalario.setText(mensajes.getString("lbl.salario"));
+        lblNacionalidad.setText(mensajes.getString("lbl.nacionalidad"));
+        lblNombreArtistico.setText(mensajes.getString("lbl.nombreArtistico"));
+        lblGeneroMusical.setText(mensajes.getString("lbl.generoMusical"));
+        lblNSencillos.setText(mensajes.getString("lbl.nSencillos"));
+        lblNConciertos.setText(mensajes.getString("lbl.nConciertos"));
+        lblNGiras.setText(mensajes.getString("lbl.nGiras"));
+        btnAceptar.setText(mensajes.getString("btn.aceptar"));
+        btnCancelar.setText(mensajes.getString("btn.Cancelar"));
+        String borderTitle = mensajes.getString("jpanel.crearCantante");
+        Border border = BorderFactory.createTitledBorder(borderTitle);
+        jPanel1.setBorder(border);
+
     }
 
     /**
@@ -108,7 +114,7 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(235, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Crear Nuevo Cantante", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Crear nuevo cantante\n", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 460));
 
         lblNombreArtistico.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
@@ -135,7 +141,7 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
         txtNSencillos.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtNSencillos.setToolTipText("Ingrese la fecha de nacimiento de la nueva persona (01/01/1990)");
 
-        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons8-Windows-8-Users-Add-User.48.png"))); // NOI18N
+        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Add-User.24.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +149,7 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
             }
         });
 
-        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Roundicons-100-Free-Solid-Cancel.48.png"))); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cancel.24.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,7 +244,7 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
                                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -306,14 +312,18 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(71, 71, 71)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombreArtistico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtNombreArtistico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cbxNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNombreArtistico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtNombreArtistico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbxNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblGeneroMusical, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -330,15 +340,11 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNGiras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNGiras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
+                        .addGap(65, 65, 65)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAceptar)
                             .addComponent(btnCancelar))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addContainerGap())))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -347,13 +353,13 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 842, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE))
         );
 
         pack();
@@ -366,7 +372,7 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
         String apellido = txtApellido.getText();
         String edadS = txtEdad.getText();
         int edad = Integer.parseInt(edadS);
-        String nacionalidad = (String)cbxNacionalidad.getSelectedItem();
+        String nacionalidad = (String) cbxNacionalidad.getSelectedItem();
         String salarioS = txtSalario.getText();
         double salario = Double.parseDouble(salarioS);
         String nombreArtistico = txtNombreArtistico.getText();
@@ -397,12 +403,12 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         // TODO add your handling code here:
         String rutaArchivo = "src/main/resources/paises.csv";
-
         // Cargar datos del archivo Excel en el JComboBox
-        cargarDatosExcel(rutaArchivo, cbxNacionalidad);
+        cargarDatosExcel(rutaArchivo, cbxNacionalidad, Locale.getDefault().getLanguage());
+        //System.out.println(idioma);
     }//GEN-LAST:event_formInternalFrameActivated
 
-    private void cargarDatosExcel(String rutaArchivo, JComboBox<String> comboBox) {
+    private void cargarDatosExcel(String rutaArchivo, JComboBox<String> comboBox, String idioma) {
         DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>();
 
         try {
@@ -410,20 +416,11 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] valores = linea.replaceAll("\"", "").split(",");
-
-                if (valores.length > 0) {
-                    String valor = valores[0];
-                    comboBoxModel.addElement(valor);
-                }
-            }
-            while ((linea = br.readLine()) != null) {
-                String[] valores = linea.replaceAll("\"", "").split(",");
-
                 if (valores.length > 0) {
                     String valor;
-                    if (localizacion.equals("en")) {
+                    if (idioma.equals("en")) {
                         valor = valores[0]; // Columna para idioma ingles
-                    } else if (localizacion.equals("es")) {
+                    } else if (idioma.equals("es")) {
                         valor = valores[1]; // Columna para idioma español
                     } else {
                         valor = valores[2]; // Columna para idioma frances

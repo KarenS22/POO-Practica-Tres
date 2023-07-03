@@ -51,13 +51,64 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
     
     private void cambiarIdioma(){
-        /*
+        
         mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
-        menuCantante.setText(mensajes.getString("menu.persona"));
-        menuOperadora.setText(mensajes.getString("menu.operadora"));
-        menuDisco.setText(mensajes.getString("menu.telefono"));
+        menuCantante.setText(mensajes.getString("menu.cantante"));
+        menuOperadora.setText(mensajes.getString("menu.compositor"));
+        menuDisco.setText(mensajes.getString("menu.disco"));
         menuOpciones.setText(mensajes.getString("menu.opciones"));
-        menuIdiomas.setText(mensajes.getString("menu.idiomas"));*/
+        menuItemCrearCantante.setText(mensajes.getString("menu.item.crear"));
+        menuItemBuscarCantante.setText(mensajes.getString("menu.item.buscar"));
+        menuItemActualizarCantante.setText(mensajes.getString("menu.item.actualizar"));
+        menuItemEliminarCantante.setText(mensajes.getString("menu.item.eliminar"));
+        menuItemListarCantante.setText(mensajes.getString("menu.item.listar"));
+        menuItemCrearDisco.setText(mensajes.getString("menu.item.crear"));
+        menuItemBuscarDisco.setText(mensajes.getString("menu.item.buscar"));
+        menuItemActualizarDisco.setText(mensajes.getString("menu.item.actualizar"));
+        menuItemEliminarDisco.setText(mensajes.getString("menu.item.eliminar"));
+        menuItemListarDisco.setText(mensajes.getString("menu.item.listar"));
+        menuItemCrearCompositor.setText(mensajes.getString("menu.item.crear"));
+        menuItemBuscarCompositor.setText(mensajes.getString("menu.item.buscar"));
+        menuItemActualizarCompositor.setText(mensajes.getString("menu.item.actualizar"));
+        menuItemEliminarCompositor.setText(mensajes.getString("menu.item.eliminar"));
+        menuItemListarCompositor.setText(mensajes.getString("menu.item.listar"));
+        menuItemCrearCancion.setText(mensajes.getString("menu.item.crear"));
+        menuItemBuscarCancion.setText(mensajes.getString("menu.item.buscar"));
+        menuItemActualizarCancion.setText(mensajes.getString("menu.item.actualizar"));
+        menuItemEliminarCancion.setText(mensajes.getString("menu.item.eliminar"));
+        menuItemListarCancion.setText(mensajes.getString("menu.item.listar"));
+        menuItemCrearCliente.setText(mensajes.getString("menu.item.crear"));
+        menuItemBuscarCliente.setText(mensajes.getString("menu.item.buscar"));
+        menuItemActualizarCliente.setText(mensajes.getString("menu.item.actualizar"));
+        menuItemEliminarCliente.setText(mensajes.getString("menu.item.eliminar"));
+        menuItemListarCliente.setText(mensajes.getString("menu.item.listar"));
+        lblCompositor.setText(mensajes.getString("menu.compositor"));
+        jlblCantante.setText(mensajes.getString("menu.cantante"));
+        menuCancion.setText(mensajes.getString("menu.cancion"));
+        menuCliente.setText(mensajes.getString("menu.cliente"));
+        menuIdiomas.setText(mensajes.getString("menu.idioma"));
+        menuItemSalirOpciones.setText(mensajes.getString("menu.item.salir"));
+        menuItemEspanol.setText(mensajes.getString("menu.item.espanol"));
+        menuItemIngles.setText(mensajes.getString("menu.item.ingles"));
+        menuItemFrances.setText(mensajes.getString("menu.item.frances"));
+        if(ventanaCrearCantante != null){
+            ventanaCrearCantante.cambiarIdioma(localizacion);   
+        }
+        if(ventanaBuscarCantante != null){
+            ventanaBuscarCantante.cambiarIdioma(localizacion);   
+        }
+        if(ventanaActualizarCantante != null){
+            ventanaActualizarCantante.cambiarIdioma(localizacion);   
+        }
+        if(ventanaEliminarCantante != null){
+            ventanaEliminarCantante.cambiarIdioma(localizacion);   
+        }
+        if(ventanaListarCantante != null){
+            ventanaListarCantante.cambiarIdioma(localizacion);   
+        }
+        if(ventanaAgregarDisco != null){
+            ventanaAgregarDisco.cambiarIdioma(localizacion);   
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -124,7 +175,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jlblLogo.setBounds(1070, 0, 210, 180);
 
         jlblCantante.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jlblCantante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictogrammers-Material-Account-music.256.png"))); // NOI18N
+        jlblCantante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Music-User.256.png"))); // NOI18N
         jlblCantante.setText("Cantante");
         desktopPane.add(jlblCantante);
         jlblCantante.setBounds(90, 140, 350, 250);
@@ -391,6 +442,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
        if (ventanaCrearCantante == null){
            ventanaCrearCantante = new VentanaCrearCantante(controladorCantante);
            desktopPane.add(ventanaCrearCantante);
+           ventanaCrearCantante.cambiarIdioma(localizacion);
        }
        ventanaCrearCantante.setVisible(true);
     }//GEN-LAST:event_menuItemCrearCantanteActionPerformed
@@ -399,6 +451,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         if (ventanaBuscarCantante ==null){
             ventanaBuscarCantante = new VentanaBuscarCantante(controladorCantante);
             desktopPane.add(ventanaBuscarCantante);
+            ventanaBuscarCantante.cambiarIdioma(localizacion);
         }
         ventanaBuscarCantante.setVisible(true);
     }//GEN-LAST:event_menuItemBuscarCantanteActionPerformed
@@ -407,6 +460,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         if (ventanaActualizarCantante == null){
             ventanaActualizarCantante = new VentanaActualizarCantante(controladorCantante);
             desktopPane.add(ventanaActualizarCantante);
+            ventanaActualizarCantante.cambiarIdioma(localizacion); 
         }
         ventanaActualizarCantante.setVisible(true);
     }//GEN-LAST:event_menuItemActualizarCantanteActionPerformed
@@ -415,6 +469,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         if (ventanaEliminarCantante == null){
             ventanaEliminarCantante = new VentanaEliminarCantante(controladorCantante);
             desktopPane.add(ventanaEliminarCantante);
+            ventanaEliminarCantante.cambiarIdioma(localizacion);  
         }
         ventanaEliminarCantante.setVisible(true);
     }//GEN-LAST:event_menuItemEliminarCantanteActionPerformed
@@ -423,6 +478,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         if (ventanaListarCantante == null){
             ventanaListarCantante = new VentanaListarCantante(controladorCantante);
             desktopPane.add(ventanaListarCantante);
+            ventanaListarCantante.cambiarIdioma(localizacion);  
         }
         ventanaListarCantante.setVisible(true);
     }//GEN-LAST:event_menuItemListarCantanteActionPerformed
@@ -476,6 +532,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         if (ventanaAgregarDisco == null){
             ventanaAgregarDisco = new VentanaAgregarDisco(controladorCantante);
             desktopPane.add(ventanaAgregarDisco);
+            ventanaAgregarDisco.cambiarIdioma(localizacion);   
         }
         ventanaAgregarDisco.setVisible(true);
     }//GEN-LAST:event_menuItemCrearDiscoActionPerformed

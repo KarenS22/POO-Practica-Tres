@@ -1,16 +1,18 @@
-
 package ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante;
-
 
 import ec.edu.ups.practica.tres.quitokaren.penasofia.controlador.ControladorCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Cantante;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
-
 
 public class VentanaListarCantante extends javax.swing.JInternalFrame {
 
     private ControladorCantante controladorCantante;
+    private ResourceBundle mensajes;
 
     /**
      * Creates new form VentanaListarPersona
@@ -18,6 +20,28 @@ public class VentanaListarCantante extends javax.swing.JInternalFrame {
     public VentanaListarCantante(ControladorCantante controladorCantante) {
         initComponents();
         this.controladorCantante = controladorCantante;
+    }
+
+    public void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
+        btnCancelar.setText(mensajes.getString("btn.Cancelar"));
+        String borderTitle = mensajes.getString("jpanel.listCant");
+        Border border = BorderFactory.createTitledBorder(borderTitle);
+        jPanel1.setBorder(border);
+        DefaultTableModel model = (DefaultTableModel) tblPersonas.getModel();
+        String codigo = mensajes.getString("lbl.codigo");
+        String nombre = mensajes.getString("lbl.nombre");
+        String apellido = mensajes.getString("lbl.codigo");
+        String edad = mensajes.getString("lbl.edad");
+        String nacionalidad = mensajes.getString("lbl.nacionalidad");
+        String salario = mensajes.getString("lbl.salario");
+        String nombreArtistico = mensajes.getString("lbl.nombreArtistico");
+        String generoMusical = mensajes.getString("lbl.generoMusical");
+        String numeroDeSencillos = mensajes.getString("lbl.nSencillos");
+        String numeroDeConciertos = mensajes.getString("lbl.nConciertos");
+        String numeroDeGiras = mensajes.getString("lbl.nGiras");
+        model.setColumnIdentifiers(new String[]{codigo, nombre, apellido, edad, nacionalidad, salario, 
+            nombreArtistico, generoMusical, numeroDeSencillos, numeroDeConciertos, numeroDeGiras});
     }
 
     /**
@@ -58,7 +82,7 @@ public class VentanaListarCantante extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(229, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Listar Personas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 14))); // NOI18N
 
         tblPersonas.setModel(new javax.swing.table.DefaultTableModel(
@@ -128,7 +152,7 @@ public class VentanaListarCantante extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        
+
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
@@ -136,7 +160,7 @@ public class VentanaListarCantante extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameActivated
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-           this.setEnabled(false);
+        this.setEnabled(false);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void cargarDatosTabla() {
@@ -158,8 +182,8 @@ public class VentanaListarCantante extends javax.swing.JInternalFrame {
             String numeroDeSencillos = String.valueOf(cantante.getNumeroDeSencillos());
             String numeroDeConciertos = String.valueOf(cantante.getNumeroDeConciertos());
             String numeroDeGiras = String.valueOf(cantante.getNumeroDeGiras());
-            
-            Object[] rowData = {codigo, nombre, apellido, edad, nacionalidad,salario, nombreArtistico, generoMusical, numeroDeSencillos, numeroDeConciertos, numeroDeGiras};
+
+            Object[] rowData = {codigo, nombre, apellido, edad, nacionalidad, salario, nombreArtistico, generoMusical, numeroDeSencillos, numeroDeConciertos, numeroDeGiras};
             modelo.addRow(rowData);
         }
         this.tblPersonas.setModel(modelo);
