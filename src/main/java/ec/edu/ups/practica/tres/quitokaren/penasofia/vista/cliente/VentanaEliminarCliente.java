@@ -406,6 +406,7 @@ public class VentanaEliminarCliente extends javax.swing.JInternalFrame {
 
     private void cambiarEstadoCampos(boolean estado) {
         this.txtCodigo.setEnabled(!estado);
+        this.txtCodigoCancion.setEnabled(estado);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -401,6 +401,9 @@ public class VentanaActualizarCliente extends javax.swing.JInternalFrame {
 
     private void cambiarEstadoCampos(boolean estado) {
         this.txtCodigo.setEnabled(!estado);
+        this.txtCodigoCancion.setEnabled(estado);
+        this.txtTitulo.setText("");
+        this.txtApellido1.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
