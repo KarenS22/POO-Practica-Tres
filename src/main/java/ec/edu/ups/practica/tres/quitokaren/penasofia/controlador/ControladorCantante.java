@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ec.edu.ups.practica.tres.quitokaren.penasofia.controlador;
 
 import ec.edu.ups.practica.tres.quitokaren.penasofia.idao.ICantanteDAO;
@@ -9,10 +6,6 @@ import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Cantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Disco;
 import java.util.List;
 
-/**
- *
- * @author ACER
- */
 public class ControladorCantante {
 
     private Cantante cantante;

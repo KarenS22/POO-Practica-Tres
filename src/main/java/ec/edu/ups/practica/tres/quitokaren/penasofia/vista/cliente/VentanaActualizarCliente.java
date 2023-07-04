@@ -342,7 +342,7 @@ public class VentanaActualizarCliente extends javax.swing.JInternalFrame {
         if (compositor != null) {
             txtNombre.setText(compositor.getNombre());
             txtApellido.setText(compositor.getApellido());
-            this.cambiarEstadoCampos(true);
+            txtCodigoCancion.setEnabled(true);
         } else {
             JOptionPane.showMessageDialog(this, "La persona con codigo " + codigo + " no ha sido encontrada!");
         }
@@ -358,8 +358,13 @@ public class VentanaActualizarCliente extends javax.swing.JInternalFrame {
         int codigoC = Integer.parseInt(txtCodigo.getText());
         int codigoCantante = Integer.parseInt(txtCodigoCancion.getText());
         Cantante cantante = controladorCompositor.verCliente(codigoC, codigoCantante);
-        txtTitulo.setText(cantante.getNombre());
+        if (cantante != null){
+            txtTitulo.setText(cantante.getNombre());
         txtApellido1.setText(cantante.getApellido());
+            cambiarEstadoCampos(true);
+        txtCodigoCancion.setEnabled(false);
+        }
+        
 
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
@@ -402,8 +407,8 @@ public class VentanaActualizarCliente extends javax.swing.JInternalFrame {
     private void cambiarEstadoCampos(boolean estado) {
         this.txtCodigo.setEnabled(!estado);
         this.txtCodigoCancion.setEnabled(estado);
-        this.txtTitulo.setText("");
-        this.txtApellido1.setText("");
+        this.txtTitulo.setEnabled(estado);
+        this.txtApellido1.setEnabled(estado);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

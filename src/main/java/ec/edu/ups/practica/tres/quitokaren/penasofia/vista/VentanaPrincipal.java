@@ -230,7 +230,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jlblLogo = new javax.swing.JLabel();
         jlblCantante = new javax.swing.JLabel();
         lblCompositor = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         menuCantante = new javax.swing.JMenu();
         menuItemCrearCantante = new javax.swing.JMenuItem();
@@ -290,10 +289,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         lblCompositor.setText("Compositor");
         desktopPane.add(lblCompositor);
         lblCompositor.setBounds(480, 140, 380, 240);
-
-        jLabel1.setText("jLabel1");
-        desktopPane.add(jLabel1);
-        jLabel1.setBounds(420, 430, 37, 16);
 
         menuCantante.setMnemonic('f');
         menuCantante.setText("Cantante");
@@ -887,7 +882,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel jlblCantante;

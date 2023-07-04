@@ -35,6 +35,7 @@ public class VentanaAgregarCancion extends javax.swing.JInternalFrame {
         lblApellido.setText(mensajes.getString("lbl.apellido"));
         lblCodigo.setText(mensajes.getString("lbl.codigo"));
         lblTitulo.setText(mensajes.getString("lbl.titulo"));
+        lblLetraCancion.setText(mensajes.getString("lbl.letra"));
         lblCodigoCancion.setText(mensajes.getString("lbl.codigo"));
         lblTiempoMinutos.setText(mensajes.getString("lbl.tiempoMinutos"));
         btnAceptar.setText(mensajes.getString("btn.aceptar"));

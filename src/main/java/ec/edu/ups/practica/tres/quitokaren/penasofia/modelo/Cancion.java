@@ -23,11 +23,6 @@ public class Cancion {
         this.tiempoEnMinutos = tiempoEnMinutos;
     }
     
-    
-    
-    
-    
-
 //getters and setters
     public int getCodigo() {
         return codigo;

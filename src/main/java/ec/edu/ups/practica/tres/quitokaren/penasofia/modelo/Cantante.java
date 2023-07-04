@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Cantante extends Persona {
     //atributos de la clase Cantante
-
+    
     private String nombreArtistico;
     private String generoMusical;
     private int numeroDeSencillos;
@@ -14,7 +14,7 @@ public class Cantante extends Persona {
     private List<Disco> discografia;
 
     // constructores
-    
+  
     public Cantante(int codigo, String nombre, String apellido) {
         super(codigo, nombre, apellido);
     }
