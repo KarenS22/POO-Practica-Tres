@@ -102,8 +102,7 @@ public abstract class Persona {
     //sobreescritura toString
     @Override
     public String toString() {
-        return "Persona{" + "codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ","
-                + " edad=" + edad + ", nacionalidad=" + nacionalidad + ", salario=" + salario + '}';
+        return "Codigo: " + codigo + " Nombre: " + nombre + " Apellido: " + apellido;
     }
     
     //metodo abstracto que se modificará en las subclase

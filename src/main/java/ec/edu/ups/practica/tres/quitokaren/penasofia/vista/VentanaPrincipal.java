@@ -10,11 +10,21 @@ import ec.edu.ups.practica.tres.quitokaren.penasofia.dao.CantanteDAO;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.dao.CompositorDAO;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.idao.ICantanteDAO;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.idao.ICompositorDAO;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cancion.VentanaActualizarCancion;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cancion.VentanaAgregarCancion;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cancion.VentanaBuscarCancion;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cancion.VentanaEliminarCancion;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cancion.VentanaListarCancion;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaActualizarCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaBuscarCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaCrearCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaEliminarCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaListarCantante;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cliente.VentanaActualizarCliente;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cliente.VentanaAgregarCliente;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cliente.VentanaBuscarCliente;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cliente.VentanaEliminarCliente;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cliente.VentanaListarClientes;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.compositor.VentanaActualizarCompositor;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.compositor.VentanaBuscarCompositor;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.compositor.VentanaCrearCompositor;
@@ -50,6 +60,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private VentanaActualizarCompositor ventanaActualizarCompositor;
     private VentanaEliminarCompositor ventanaEliminarCompositor;
     private VentanaListarCompositor ventanaListarCompositor;
+    
+    private VentanaAgregarCancion ventanaAgregarCancion;
+    private VentanaBuscarCancion ventanaBuscarCancion;
+    private VentanaActualizarCancion ventanaActualizarCancion;
+    private VentanaEliminarCancion ventanaEliminarCancion;
+    private VentanaListarCancion ventanaListarCancion;
+    
+    private VentanaAgregarCliente ventanaAgregarCliente;
+    private VentanaBuscarCliente ventanaBuscarCliente;
+    private VentanaActualizarCliente ventanaActualizarCliente;
+    private VentanaEliminarCliente ventanaEliminarCliente;
+    private VentanaListarClientes ventanaListarClientes;
     
     private ControladorCantante controladorCantante;
     private ControladorCompositor controladorCompositor;
@@ -160,6 +182,38 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         if(ventanaListarCompositor != null){
             ventanaListarCompositor.cambiarIdioma(localizacion);
         }
+        if(ventanaAgregarCancion != null){
+            ventanaAgregarCancion.cambiarIdioma(localizacion);
+        }
+        if(ventanaBuscarCancion != null){
+            ventanaBuscarCancion.cambiarIdioma(localizacion);
+        }
+        if(ventanaActualizarCancion != null){
+            ventanaActualizarCancion.cambiarIdioma(localizacion);
+        }
+        if(ventanaEliminarCancion != null){
+            ventanaEliminarCancion.cambiarIdioma(localizacion);
+        }
+        if(ventanaListarCancion != null){
+            ventanaListarCancion.cambiarIdioma(localizacion);
+        }
+        if(ventanaAgregarCliente != null){
+            ventanaAgregarCliente.cambiarIdioma(localizacion);
+        }
+        if(ventanaBuscarCliente != null){
+            ventanaBuscarCliente.cambiarIdioma(localizacion);
+        }
+        if(ventanaActualizarCliente != null){
+            ventanaActualizarCliente.cambiarIdioma(localizacion);
+        }
+        if(ventanaEliminarCliente != null){
+            ventanaEliminarCliente.cambiarIdioma(localizacion);
+        }
+        if(ventanaListarClientes != null){
+            ventanaListarClientes.cambiarIdioma(localizacion);
+        }
+        
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -387,18 +441,43 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuCancion.setText("Cancion");
 
         menuItemCrearCancion.setText("Crear");
+        menuItemCrearCancion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemCrearCancionActionPerformed(evt);
+            }
+        });
         menuCancion.add(menuItemCrearCancion);
 
         menuItemBuscarCancion.setText("Buscar");
+        menuItemBuscarCancion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemBuscarCancionActionPerformed(evt);
+            }
+        });
         menuCancion.add(menuItemBuscarCancion);
 
         menuItemActualizarCancion.setText("Actualizar");
+        menuItemActualizarCancion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemActualizarCancionActionPerformed(evt);
+            }
+        });
         menuCancion.add(menuItemActualizarCancion);
 
         menuItemEliminarCancion.setText("Eliminar");
+        menuItemEliminarCancion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemEliminarCancionActionPerformed(evt);
+            }
+        });
         menuCancion.add(menuItemEliminarCancion);
 
         menuItemListarCancion.setText("Listar");
+        menuItemListarCancion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemListarCancionActionPerformed(evt);
+            }
+        });
         menuCancion.add(menuItemListarCancion);
 
         menuOperadora.add(menuCancion);
@@ -406,18 +485,43 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuCliente.setText("Cliente");
 
         menuItemCrearCliente.setText("Crear");
+        menuItemCrearCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemCrearClienteActionPerformed(evt);
+            }
+        });
         menuCliente.add(menuItemCrearCliente);
 
         menuItemBuscarCliente.setText("Buscar");
+        menuItemBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemBuscarClienteActionPerformed(evt);
+            }
+        });
         menuCliente.add(menuItemBuscarCliente);
 
         menuItemActualizarCliente.setText("Actualizar");
+        menuItemActualizarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemActualizarClienteActionPerformed(evt);
+            }
+        });
         menuCliente.add(menuItemActualizarCliente);
 
         menuItemEliminarCliente.setText("Eliminar");
+        menuItemEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemEliminarClienteActionPerformed(evt);
+            }
+        });
         menuCliente.add(menuItemEliminarCliente);
 
         menuItemListarCliente.setText("Listar");
+        menuItemListarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemListarClienteActionPerformed(evt);
+            }
+        });
         menuCliente.add(menuItemListarCliente);
 
         menuOperadora.add(menuCliente);
@@ -644,6 +748,106 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
         ventanaListarDisco.setVisible(true);
     }//GEN-LAST:event_menuItemListarDiscoActionPerformed
+
+    private void menuItemCrearCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrearCancionActionPerformed
+        // TODO add your handling code here:
+        if (ventanaAgregarCancion == null) {
+            ventanaAgregarCancion = new VentanaAgregarCancion(controladorCompositor);
+            desktopPane.add(ventanaAgregarCancion);
+            ventanaAgregarCancion.cambiarIdioma(localizacion);
+        }
+        ventanaAgregarCancion.setVisible(true);
+    }//GEN-LAST:event_menuItemCrearCancionActionPerformed
+
+    private void menuItemBuscarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuscarCancionActionPerformed
+        // TODO add your handling code here:
+        if (ventanaBuscarCancion == null) {
+            ventanaBuscarCancion = new VentanaBuscarCancion(controladorCompositor);
+            desktopPane.add(ventanaBuscarCancion);
+            ventanaBuscarCancion.cambiarIdioma(localizacion);
+        }
+        ventanaBuscarCancion.setVisible(true);
+    }//GEN-LAST:event_menuItemBuscarCancionActionPerformed
+
+    private void menuItemActualizarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActualizarCancionActionPerformed
+        // TODO add your handling code here:
+        if (ventanaActualizarCancion == null) {
+            ventanaActualizarCancion = new VentanaActualizarCancion(controladorCompositor);
+            desktopPane.add(ventanaActualizarCancion);
+            ventanaActualizarCancion.cambiarIdioma(localizacion);
+        }
+        ventanaActualizarCancion.setVisible(true);
+    }//GEN-LAST:event_menuItemActualizarCancionActionPerformed
+
+    private void menuItemEliminarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarCancionActionPerformed
+        // TODO add your handling code here:
+        if (ventanaEliminarCancion == null) {
+            ventanaEliminarCancion = new VentanaEliminarCancion(controladorCompositor);
+            desktopPane.add(ventanaEliminarCancion);
+            ventanaEliminarCancion.cambiarIdioma(localizacion);
+        }
+        ventanaEliminarCancion.setVisible(true);
+    }//GEN-LAST:event_menuItemEliminarCancionActionPerformed
+
+    private void menuItemListarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarCancionActionPerformed
+        // TODO add your handling code here:
+        if (ventanaListarCancion == null) {
+            ventanaListarCancion = new VentanaListarCancion(controladorCompositor);
+            desktopPane.add(ventanaListarCancion);
+            ventanaListarCancion.cambiarIdioma(localizacion);
+        }
+        ventanaListarCancion.setVisible(true);
+    }//GEN-LAST:event_menuItemListarCancionActionPerformed
+
+    private void menuItemCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrearClienteActionPerformed
+        // TODO add your handling code here:
+        if (ventanaAgregarCliente == null) {
+            ventanaAgregarCliente = new VentanaAgregarCliente(controladorCompositor, controladorCantante);
+            desktopPane.add(ventanaAgregarCliente);
+            ventanaAgregarCliente.cambiarIdioma(localizacion);
+        }
+        ventanaAgregarCliente.setVisible(true);
+    }//GEN-LAST:event_menuItemCrearClienteActionPerformed
+
+    private void menuItemBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuscarClienteActionPerformed
+        // TODO add your handling code here:
+          if (ventanaBuscarCliente == null) {
+            ventanaBuscarCliente = new VentanaBuscarCliente(controladorCompositor, controladorCantante);
+            desktopPane.add(ventanaBuscarCliente);
+            ventanaBuscarCliente.cambiarIdioma(localizacion);
+        }
+        ventanaBuscarCliente.setVisible(true);
+    }//GEN-LAST:event_menuItemBuscarClienteActionPerformed
+
+    private void menuItemActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActualizarClienteActionPerformed
+        // TODO add your handling code here:
+          if (ventanaActualizarCliente == null) {
+            ventanaActualizarCliente = new VentanaActualizarCliente(controladorCompositor, controladorCantante);
+            desktopPane.add(ventanaActualizarCliente);
+            ventanaActualizarCliente.cambiarIdioma(localizacion);
+        }
+        ventanaActualizarCliente.setVisible(true);
+    }//GEN-LAST:event_menuItemActualizarClienteActionPerformed
+
+    private void menuItemEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarClienteActionPerformed
+        // TODO add your handling code here:
+          if (ventanaEliminarCliente == null) {
+            ventanaEliminarCliente = new VentanaEliminarCliente(controladorCompositor, controladorCantante);
+            desktopPane.add(ventanaEliminarCliente);
+            ventanaEliminarCliente.cambiarIdioma(localizacion);
+        }
+        ventanaEliminarCliente.setVisible(true);
+    }//GEN-LAST:event_menuItemEliminarClienteActionPerformed
+
+    private void menuItemListarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarClienteActionPerformed
+        // TODO add your handling code here:
+          if (ventanaListarClientes == null) {
+            ventanaListarClientes = new VentanaListarClientes(controladorCompositor, controladorCantante);
+            desktopPane.add(ventanaListarClientes);
+            ventanaListarClientes.cambiarIdioma(localizacion);
+        }
+        ventanaListarClientes.setVisible(true);
+    }//GEN-LAST:event_menuItemListarClienteActionPerformed
 
     /**
      * @param args the command line arguments

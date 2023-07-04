@@ -14,6 +14,7 @@ public class Cantante extends Persona {
     private List<Disco> discografia;
 
     // constructores
+    
     public Cantante(int codigo, String nombre, String apellido) {
         super(codigo, nombre, apellido);
     }
@@ -138,10 +139,10 @@ public class Cantante extends Persona {
 //sobreescritura del metodo toString
     @Override
     public String toString() {
-        return "Cantante{" + super.toString() + "nombreArtistico=" + nombreArtistico + ", "
+        return "Cantante: " + super.toString(); /*+ "nombreArtistico=" + nombreArtistico + ", "
                 + "generoMusical=" + generoMusical + ", numeroDeSencillos=" + numeroDeSencillos + ", "
                 + "numeroDeConciertos=" + numeroDeConciertos + ", numeroDeGiras=" + numeroDeGiras + ","
-                + " discografia=" + discografia + '}';
+                + " discografia=" + discografia + '}';*/
     }
 
 }

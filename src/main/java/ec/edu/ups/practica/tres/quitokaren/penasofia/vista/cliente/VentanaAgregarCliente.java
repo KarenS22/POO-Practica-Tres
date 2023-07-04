@@ -2,13 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cancion;
+package ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cliente;
 
+import ec.edu.ups.practica.tres.quitokaren.penasofia.controlador.ControladorCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.controlador.ControladorCompositor;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Cantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Compositor;
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 
@@ -16,17 +20,19 @@ import javax.swing.border.Border;
  *
  * @author ACER
  */
-public class VentanaAgregarCancion extends javax.swing.JInternalFrame {
+public class VentanaAgregarCliente extends javax.swing.JInternalFrame {
 
     private ControladorCompositor controladorCompositor;
+    private ControladorCantante controladorCantante;
     private ResourceBundle mensajes;
 
     /**
      * Creates new form VentanaAgregarDisco
      */
-    public VentanaAgregarCancion(ControladorCompositor controladorCompositor) {
+    public VentanaAgregarCliente(ControladorCompositor controladorCompositor, ControladorCantante controladorCantante) {
         initComponents();
         this.controladorCompositor = controladorCompositor;
+        this.controladorCantante = controladorCantante;
     }
 
     public void cambiarIdioma(Locale localizacion) {
@@ -34,16 +40,15 @@ public class VentanaAgregarCancion extends javax.swing.JInternalFrame {
         lblNombre.setText(mensajes.getString("lbl.nombre"));
         lblApellido.setText(mensajes.getString("lbl.apellido"));
         lblCodigo.setText(mensajes.getString("lbl.codigo"));
-        lblTitulo.setText(mensajes.getString("lbl.titulo"));
+        lblTitulo.setText(mensajes.getString("lbl.nombre"));
         lblCodigoCancion.setText(mensajes.getString("lbl.codigo"));
-        lblTiempoMinutos.setText(mensajes.getString("lbl.tiempoMinutos"));
         btnAceptar.setText(mensajes.getString("btn.aceptar"));
         btnBuscar.setText(mensajes.getString("menu.item.buscar"));
         btnCancelar.setText(mensajes.getString("btn.Cancelar"));
         String borderTitle = mensajes.getString("jpanel.buscarCompositor");
         Border border = BorderFactory.createTitledBorder(borderTitle);
         jPanel1.setBorder(border);
-        String borderTitle2 = mensajes.getString("jpanel.crearCancion");
+        String borderTitle2 = mensajes.getString("jpanel.crearCliente");
         Border border2 = BorderFactory.createTitledBorder(borderTitle2);
         jPanel2.setBorder(border2);
     }
@@ -69,12 +74,9 @@ public class VentanaAgregarCancion extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         txtCodigoCancion = new javax.swing.JTextField();
         txtTitulo = new javax.swing.JTextField();
-        txtTiempoMinutos = new javax.swing.JTextField();
         lblCodigoCancion = new java.awt.Label();
         lblTitulo = new java.awt.Label();
-        lblTiempoMinutos = new java.awt.Label();
-        lblLetraCancion = new java.awt.Label();
-        txtLetra = new javax.swing.JTextField();
+        cbxCantante = new javax.swing.JComboBox<>();
         btnAceptar = new javax.swing.JButton();
 
         setClosable(true);
@@ -85,6 +87,7 @@ public class VentanaAgregarCancion extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(860, 483));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
             }
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -206,34 +209,18 @@ public class VentanaAgregarCancion extends javax.swing.JInternalFrame {
         txtTitulo.setToolTipText("");
         txtTitulo.setEnabled(false);
 
-        txtTiempoMinutos.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        txtTiempoMinutos.setForeground(new java.awt.Color(51, 102, 255));
-        txtTiempoMinutos.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtTiempoMinutos.setToolTipText("");
-        txtTiempoMinutos.setEnabled(false);
-        txtTiempoMinutos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTiempoMinutosActionPerformed(evt);
-            }
-        });
-
         lblCodigoCancion.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblCodigoCancion.setText("Codigo");
 
         lblTitulo.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        lblTitulo.setText("Titulo");
+        lblTitulo.setText("Nombre");
 
-        lblTiempoMinutos.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        lblTiempoMinutos.setText("Tiempo en minutos");
-
-        lblLetraCancion.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        lblLetraCancion.setText("Letra");
-
-        txtLetra.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        txtLetra.setForeground(new java.awt.Color(51, 102, 255));
-        txtLetra.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtLetra.setToolTipText("");
-        txtLetra.setEnabled(false);
+        cbxCantante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxCantante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxCantanteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -243,40 +230,30 @@ public class VentanaAgregarCancion extends javax.swing.JInternalFrame {
                 .addGap(49, 49, 49)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCodigoCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTiempoMinutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtTiempoMinutos, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTitulo, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCodigoCancion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addComponent(lblLetraCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
-                .addComponent(txtLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 110, Short.MAX_VALUE))
+                    .addComponent(lblCodigoCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(107, 107, 107)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbxCantante, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtTitulo, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtCodigoCancion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 415, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(20, 20, 20)
+                .addComponent(cbxCantante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtCodigoCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(txtCodigoCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(lblLetraCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTiempoMinutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTiempoMinutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(lblCodigoCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Accept.24.png"))); // NOI18N
@@ -351,66 +328,69 @@ public class VentanaAgregarCancion extends javax.swing.JInternalFrame {
         this.cambiarEstadoCampos(false);
     }//GEN-LAST:event_formInternalFrameClosing
 
-    private void txtTiempoMinutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTiempoMinutosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTiempoMinutosActionPerformed
-
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         int codigoC = Integer.parseInt(txtCodigo.getText());
-        String codigoSD = txtCodigoCancion.getText();
-        int codigoCancion = Integer.parseInt(codigoSD);
-        String titulo = txtTitulo.getText();
-        String letra = txtLetra.getText();
-        double tiempoMinutos = Double.parseDouble(txtTiempoMinutos.getText());
-
-        boolean b = controladorCompositor.ingresarCancion(codigoC, codigoCancion, titulo, letra, tiempoMinutos);
-        if (b) {
-            JOptionPane.showMessageDialog(this, "La cancion ha sido creado exitosamente! :)");
+        Cantante cantante = (Cantante)cbxCantante.getSelectedItem();
+        txtCodigoCancion.setText(String.valueOf(cantante.getCodigo()));
+        txtTitulo.setText(cantante.getNombre());
+        boolean t = controladorCompositor.ingresarCliente(codigoC, cantante);
+        if (t) {
+            JOptionPane.showMessageDialog(this, "El cliente ha sido creado exitosamente! :)");
             this.limpiarCampos();
             this.cambiarEstadoCampos(false);
         } else {
-            JOptionPane.showMessageDialog(this, "La cancion no ha sido creado! :(");
+            JOptionPane.showMessageDialog(this, "El cliente no ha sido creado! :(");
 
         }
+       
     }//GEN-LAST:event_btnAceptarActionPerformed
 
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        // TODO add your handling code here:
+        cargarCantantes();
+    }//GEN-LAST:event_formInternalFrameActivated
+
+    private void cbxCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCantanteActionPerformed
+
+    }//GEN-LAST:event_cbxCantanteActionPerformed
+
+    private void cargarCantantes(){
+        DefaultComboBoxModel<Cantante> modelo = (DefaultComboBoxModel) this.cbxCantante.getModel();
+        List<Cantante> listaCantante = controladorCantante.listar();
+        modelo.removeAllElements();
+        for (Cantante cantante : listaCantante) {
+            modelo.addElement(cantante);
+        }
+    }
     private void limpiarCampos() {
         this.txtCodigo.setText("");
         this.txtNombre.setText("");
         this.txtApellido.setText("");
-        this.txtLetra.setText("");
         this.txtCodigoCancion.setText("");
         this.txtTitulo.setText("");
-        this.txtTiempoMinutos.setText("");
+        this.cbxCantante.setSelectedIndex(0);
     }
 
     private void cambiarEstadoCampos(boolean estado) {
         this.txtCodigo.setEnabled(!estado);
-        this.txtCodigoCancion.setEnabled(estado);
-        this.txtTitulo.setEnabled(estado);
-        this.txtLetra.setEnabled(estado);
-        this.txtTiempoMinutos.setEnabled(estado);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JComboBox<String> cbxCantante;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private java.awt.Label lblApellido;
     private java.awt.Label lblCodigo;
     private java.awt.Label lblCodigoCancion;
-    private java.awt.Label lblLetraCancion;
     private java.awt.Label lblNombre;
-    private java.awt.Label lblTiempoMinutos;
     private java.awt.Label lblTitulo;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtCodigoCancion;
-    private javax.swing.JTextField txtLetra;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTiempoMinutos;
     private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,10 +1,11 @@
 
-package ec.edu.ups.practica.tres.quitokaren.penasofia.vista.disco;
+package ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cliente;
 
 
 import ec.edu.ups.practica.tres.quitokaren.penasofia.controlador.ControladorCantante;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.controlador.ControladorCompositor;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Cantante;
-import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Disco;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Compositor;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -14,15 +15,17 @@ import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
 
-public class VentanaListarDisco extends javax.swing.JInternalFrame {
+public class VentanaListarClientes extends javax.swing.JInternalFrame {
 
+    private ControladorCompositor controladorCompositor;
     private ControladorCantante controladorCantante;
     private ResourceBundle mensajes;
     /**
      * Creates new form VentanaListarPersona
      */
-    public VentanaListarDisco(ControladorCantante controladorCantante) {
+    public VentanaListarClientes(ControladorCompositor controladorCompositor, ControladorCantante controladorCantante) {
         initComponents();
+        this.controladorCompositor = controladorCompositor;
         this.controladorCantante = controladorCantante;
     }
 public void cambiarIdioma(Locale localizacion) {
@@ -31,18 +34,17 @@ public void cambiarIdioma(Locale localizacion) {
         lblCodigo.setText(mensajes.getString("lbl.codigo"));
         btnBuscar.setText(mensajes.getString("menu.item.buscar"));
         btnCancelar.setText(mensajes.getString("btn.Cancelar"));
-        String borderTitle = mensajes.getString("jpanel.listarDisco");
+        String borderTitle = mensajes.getString("jpanel.listarCliente");
             Border border = BorderFactory.createTitledBorder(borderTitle);
         jPanel1.setBorder(border);
-        String borderTitle2 = mensajes.getString("jpanel.buscarCant");
+        String borderTitle2 = mensajes.getString("jpanel.buscarCompositor");
         Border border2 = BorderFactory.createTitledBorder(borderTitle2);
         jPanel2.setBorder(border2);
         DefaultTableModel modelo = (DefaultTableModel) this.tblDiscos.getModel();
         String codigo = mensajes.getString("lbl.codigo");
         String nombre = mensajes.getString("lbl.nombre");
-        String anioLanzamiento = mensajes.getString("lbl.anioLanzamiento");
-        modelo.setColumnIdentifiers(new String[]{codigo, nombre, anioLanzamiento});
-
+        String apellido = mensajes.getString("lbl.apellido");
+        modelo.setColumnIdentifiers(new String[]{codigo, nombre, apellido});
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -96,7 +98,7 @@ public void cambiarIdioma(Locale localizacion) {
 
             },
             new String [] {
-                "Codigo", "Nombre", "Año de lanzamiento"
+                "Codigo", "Nombre", "Apellido"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -237,13 +239,13 @@ public void cambiarIdioma(Locale localizacion) {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         String codigoS = txtCodigo.getText();
         int codigo = Integer.parseInt(codigoS);
-        Cantante cantante = controladorCantante.buscar(codigo);
-        if (cantante != null){
-            txtNombre.setText(cantante.getNombre());
+        Compositor c = controladorCompositor.buscar(codigo);
+        if (c != null){
+            txtNombre.setText(c.getNombre());
             txtNombre.setEnabled(false);
             this.cargarDatosTabla();
         } else {
-            JOptionPane.showMessageDialog(this, "El cantante con codigo " + codigo + " no ha sido encontrado!");
+            JOptionPane.showMessageDialog(this, "El compositor con codigo " + codigo + " no ha sido encontrado!");
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -251,12 +253,12 @@ public void cambiarIdioma(Locale localizacion) {
         DefaultTableModel modelo = (DefaultTableModel) this.tblDiscos.getModel();
         modelo.setNumRows(0);
         
-        List<Disco> listaDisco = controladorCantante.verDiscos(Integer.parseInt(txtCodigo.getText()));
-        for (Disco disco1 : listaDisco) {
-            String codigoD = String.valueOf(disco1.getCodigo());
-            String nombreD = disco1.getNombre();
-            String anioDeLanzamiento = String.valueOf(disco1.getAnioDeLazamiento());
-            Object [] rowData = {codigoD, nombreD, anioDeLanzamiento};
+        List<Cantante> listaCantante = controladorCompositor.verClientes(Integer.parseInt(txtCodigo.getText()));
+        for (Cantante c : listaCantante) {
+            String codigoD = String.valueOf(c.getCodigo());
+            String nombre = c.getNombre();
+            String apellido = c.getApellido();
+            Object [] rowData = {codigoD, nombre, apellido};
             modelo.addRow(rowData);
         }
         this.tblDiscos.setModel(modelo);

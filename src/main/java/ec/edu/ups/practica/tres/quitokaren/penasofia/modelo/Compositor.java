@@ -91,15 +91,18 @@ public class Compositor extends Persona {
         clientes.add(cliente);
     }
     //metodo actualiza datos de cliente
-    public void actualizarCliente(Cantante cantante){
-        if (clientes.contains(cantante)){
-            int index = clientes.indexOf(cantante);
-            clientes.set(index, cantante);
+    public void actualizarCliente(int codigoCantante, String nombre, String apellido){
+        for (int i = 0; i < clientes.size(); i++) {
+            if (clientes.get(i).getCodigo() == codigoCantante){
+                Cantante c = clientes.get(i);
+                c.setNombre(nombre);
+                c.setApellido(apellido);      
+            }
         }
     }
     //metodo elimina cliente
     public void eliminarCliente(Cantante cantante){
-        if (clientes.contains(cantante)){
+         if (clientes.contains(cantante)){
             int index = clientes.indexOf(cantante);
             clientes.remove(index);
         }
