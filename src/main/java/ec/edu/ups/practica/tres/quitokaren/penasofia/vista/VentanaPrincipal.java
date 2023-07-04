@@ -5,13 +5,21 @@
 package ec.edu.ups.practica.tres.quitokaren.penasofia.vista;
 
 import ec.edu.ups.practica.tres.quitokaren.penasofia.controlador.ControladorCantante;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.controlador.ControladorCompositor;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.dao.CantanteDAO;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.dao.CompositorDAO;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.idao.ICantanteDAO;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.idao.ICompositorDAO;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaActualizarCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaBuscarCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaCrearCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaEliminarCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante.VentanaListarCantante;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.compositor.VentanaActualizarCompositor;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.compositor.VentanaBuscarCompositor;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.compositor.VentanaCrearCompositor;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.compositor.VentanaEliminarCompositor;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.compositor.VentanaListarCompositor;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.disco.VentanaActualizarDisco;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.disco.VentanaAgregarDisco;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.vista.disco.VentanaBuscarDisco;
@@ -22,17 +30,31 @@ import java.util.ResourceBundle;
 
 
 public class VentanaPrincipal extends javax.swing.JFrame {
+    //cantante ventanas
     private VentanaCrearCantante ventanaCrearCantante;
     private VentanaBuscarCantante ventanaBuscarCantante;
     private VentanaActualizarCantante ventanaActualizarCantante;
     private VentanaEliminarCantante  ventanaEliminarCantante;
     private VentanaListarCantante ventanaListarCantante;
+    
+    //ventana disco
     private VentanaAgregarDisco ventanaAgregarDisco;
     private VentanaBuscarDisco ventanaBuscarDisco;
     private VentanaActualizarDisco ventanaActualizarDisco;
     private VentanaEliminarDisco ventanaEliminarDisco;
     private VentanaListarDisco ventanaListarDisco;
+    
+    //ventana compositor
+    private VentanaCrearCompositor ventanaCrearCompositor;
+    private VentanaBuscarCompositor ventanaBuscarCompositor;
+    private VentanaActualizarCompositor ventanaActualizarCompositor;
+    private VentanaEliminarCompositor ventanaEliminarCompositor;
+    private VentanaListarCompositor ventanaListarCompositor;
+    
     private ControladorCantante controladorCantante;
+    private ControladorCompositor controladorCompositor;
+    
+    private ICompositorDAO compositorDAO;
     private ICantanteDAO cantanteDAO;
     
      //Internacionalizacion
@@ -46,6 +68,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         initComponents();
         cantanteDAO = new CantanteDAO();
         controladorCantante = new ControladorCantante(cantanteDAO);
+        compositorDAO = new CompositorDAO();
+        controladorCompositor = new ControladorCompositor(compositorDAO);
         localizacion = Locale.getDefault();
         cambiarIdioma();
     }
@@ -108,6 +132,33 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
         if(ventanaAgregarDisco != null){
             ventanaAgregarDisco.cambiarIdioma(localizacion);   
+        }
+        if(ventanaActualizarDisco != null){
+            ventanaActualizarDisco.cambiarIdioma(localizacion);   
+        }
+        if(ventanaBuscarDisco != null){
+            ventanaBuscarDisco.cambiarIdioma(localizacion);   
+        }
+        if(ventanaEliminarDisco != null){
+            ventanaEliminarDisco.cambiarIdioma(localizacion);   
+        }
+        if (ventanaListarDisco != null){
+            ventanaListarDisco.cambiarIdioma(localizacion);
+        }
+        if (ventanaCrearCompositor != null){
+            ventanaCrearCompositor.cambiarIdioma(localizacion);
+        }
+        if(ventanaBuscarCompositor != null){
+            ventanaBuscarCompositor.cambiarIdioma(localizacion);   
+        }
+        if(ventanaActualizarCompositor != null){
+            ventanaActualizarCompositor.cambiarIdioma(localizacion);   
+        }
+        if(ventanaEliminarCompositor != null){
+            ventanaEliminarCompositor.cambiarIdioma(localizacion);   
+        }
+        if(ventanaListarCompositor != null){
+            ventanaListarCompositor.cambiarIdioma(localizacion);
         }
     }
     /**
@@ -484,48 +535,48 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemListarCantanteActionPerformed
 
     private void menuItemCrearCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrearCompositorActionPerformed
-      /*  if (ventanaCrearOperadora == null) {
-            ventanaCrearOperadora = new VentanaCrearOperadora(operadoraControlador);
-            desktopPane.add(ventanaCrearOperadora);
+        if (ventanaCrearCompositor == null) {
+            ventanaCrearCompositor = new VentanaCrearCompositor(controladorCompositor);
+            desktopPane.add(ventanaCrearCompositor);
+            ventanaCrearCompositor.cambiarIdioma(localizacion);
         }
-
-        ventanaCrearOperadora.setVisible(true);*/
+        ventanaCrearCompositor.setVisible(true);
     }//GEN-LAST:event_menuItemCrearCompositorActionPerformed
 
     private void menuItemBuscarCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuscarCompositorActionPerformed
-       /* if (ventanaBuscarOperadora == null) {
-            ventanaBuscarOperadora = new VentanaBuscarOperadora(operadoraControlador);
-            desktopPane.add(ventanaBuscarOperadora);
+         if (ventanaBuscarCompositor == null) {
+            ventanaBuscarCompositor = new VentanaBuscarCompositor(controladorCompositor);
+            desktopPane.add(ventanaBuscarCompositor);
+            ventanaBuscarCompositor.cambiarIdioma(localizacion);
         }
-
-        ventanaBuscarOperadora.setVisible(true);*/
+        ventanaBuscarCompositor.setVisible(true);
     }//GEN-LAST:event_menuItemBuscarCompositorActionPerformed
 
     private void menuItemActualizarCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActualizarCompositorActionPerformed
-        /* if (ventanaActualizarOperadora == null) {
-            ventanaActualizarOperadora = new VentanaActualizarOperadora(operadoraControlador);
-            desktopPane.add(ventanaActualizarOperadora);
+         if (ventanaActualizarCompositor == null) {
+            ventanaActualizarCompositor = new VentanaActualizarCompositor(controladorCompositor);
+            desktopPane.add(ventanaActualizarCompositor);
+            ventanaActualizarCompositor.cambiarIdioma(localizacion);  
         }
-
-        ventanaActualizarOperadora.setVisible(true);*/
+        ventanaActualizarCompositor.setVisible(true);
     }//GEN-LAST:event_menuItemActualizarCompositorActionPerformed
 
     private void menuItemEliminarCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarCompositorActionPerformed
-     /*   if (ventanaEliminarOperadora == null) {
-            ventanaEliminarOperadora = new VentanaEliminarOperadora(operadoraControlador);
-            desktopPane.add(ventanaEliminarOperadora);
+        if (ventanaEliminarCompositor == null) {
+            ventanaEliminarCompositor = new VentanaEliminarCompositor(controladorCompositor);
+            desktopPane.add(ventanaEliminarCompositor);
+            ventanaEliminarCompositor.cambiarIdioma(localizacion);  
         }
-
-        ventanaEliminarOperadora.setVisible(true);*/
+        ventanaEliminarCompositor.setVisible(true);
     }//GEN-LAST:event_menuItemEliminarCompositorActionPerformed
 
     private void menuItemListarCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarCompositorActionPerformed
-       /* if (ventanaListarOperadora == null) {
-            ventanaListarOperadora = new VentanaListarOperadora(operadoraControlador);
-            desktopPane.add(ventanaListarOperadora);
+        if (ventanaListarCompositor == null) {
+            ventanaListarCompositor = new VentanaListarCompositor(controladorCompositor);
+            desktopPane.add(ventanaListarCompositor);
+            ventanaListarCompositor.cambiarIdioma(localizacion);
         }
-
-        ventanaListarOperadora.setVisible(true);*/
+        ventanaListarCompositor.setVisible(true);
     }//GEN-LAST:event_menuItemListarCompositorActionPerformed
 
     private void menuItemCrearDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrearDiscoActionPerformed
@@ -541,8 +592,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         if (ventanaBuscarDisco == null) {
             ventanaBuscarDisco = new VentanaBuscarDisco(controladorCantante);
             desktopPane.add(ventanaBuscarDisco);
+            ventanaBuscarDisco.cambiarIdioma(localizacion);
         }
-
         ventanaBuscarDisco.setVisible(true);
     }//GEN-LAST:event_menuItemBuscarDiscoActionPerformed
 
@@ -569,8 +620,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         if (ventanaActualizarDisco == null) {
             ventanaActualizarDisco = new VentanaActualizarDisco(controladorCantante);
             desktopPane.add(ventanaActualizarDisco);
+            ventanaActualizarDisco.cambiarIdioma(localizacion); 
         }
-
         ventanaActualizarDisco.setVisible(true);
     }//GEN-LAST:event_menuItemActualizarDiscoActionPerformed
 
@@ -579,8 +630,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         if (ventanaEliminarDisco == null) {
             ventanaEliminarDisco = new VentanaEliminarDisco(controladorCantante);
             desktopPane.add(ventanaEliminarDisco);
+            ventanaEliminarDisco.cambiarIdioma(localizacion);   
         }
-
         ventanaEliminarDisco.setVisible(true);
     }//GEN-LAST:event_menuItemEliminarDiscoActionPerformed
 
@@ -589,8 +640,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         if (ventanaListarDisco == null) {
             ventanaListarDisco = new VentanaListarDisco(controladorCantante);
             desktopPane.add(ventanaListarDisco);
+            ventanaListarDisco.cambiarIdioma(localizacion);
         }
-
         ventanaListarDisco.setVisible(true);
     }//GEN-LAST:event_menuItemListarDiscoActionPerformed
 

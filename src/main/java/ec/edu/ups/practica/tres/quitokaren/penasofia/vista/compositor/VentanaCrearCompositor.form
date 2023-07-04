@@ -40,7 +40,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" pref="512" max="32767" attributes="0"/>
+              <Component id="jPanel1" pref="381" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -53,7 +53,7 @@
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Crear nuevo cantante&#xa;">
+            <TitledBorder title="Crear nuevo compositor">
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder/>
               </Border>
@@ -73,57 +73,24 @@
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblNombreCantante" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblCodigoCantante" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblApellidoCantante" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtNombre" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
-                                      <Component id="txtCodigo" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
-                                      <Component id="txtApellido" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace pref="219" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblNacionalidad" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblEdad" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblSalario" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="btnAceptar" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblGeneroMusical" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblNombreArtistico" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblNSencillos" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblNGiras" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblNConciertos" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNombreCantante" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCodigoCantante" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblApellidoCantante" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtGeneroMusical" min="-2" pref="201" max="-2" attributes="0"/>
-                              <Component id="txtNombreArtistico" min="-2" pref="201" max="-2" attributes="0"/>
-                              <Component id="txtNSencillos" min="-2" pref="201" max="-2" attributes="0"/>
-                              <Component id="txtNGiras" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
-                              <Component id="txtNConciertos" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
+                              <Component id="txtNombre" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
+                              <Component id="txtCodigo" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
+                              <Component id="txtApellido" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="225" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                          <EmptySpace pref="219" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblNacionalidad" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblEdad" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblSalario" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="txtEdad" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtSalario" alignment="0" max="32767" attributes="0"/>
@@ -131,9 +98,19 @@
                           </Group>
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="lblNComposiciones" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                          <Component id="txtNComposiciones" min="-2" pref="201" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="289" max="-2" attributes="0"/>
+                          <Component id="btnAceptar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -178,43 +155,22 @@
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="89" max="32767" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblNombreArtistico" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtNombreArtistico" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblGeneroMusical" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtGeneroMusical" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="lblNSencillos" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtNSencillos" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblNConciertos" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtNConciertos" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblNGiras" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtNGiras" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblNComposiciones" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNComposiciones" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnAceptar" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="30" max="32767" attributes="0"/>
+                          <EmptySpace pref="54" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -222,66 +178,6 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="java.awt.Label" name="lblNombreArtistico">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lucida Grande" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Nombre Artistico"/>
-          </Properties>
-        </Component>
-        <Component class="java.awt.Label" name="lblGeneroMusical">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lucida Grande" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Genero Musical"/>
-          </Properties>
-        </Component>
-        <Component class="java.awt.Label" name="lblNSencillos">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lucida Grande" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Numero de Sencillos"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtNombreArtistico">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Helvetica Neue" size="12" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="33" type="rgb"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="4"/>
-            <Property name="toolTipText" type="java.lang.String" value="Ingrese la cedula de la nueva persona"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtGeneroMusical">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Helvetica Neue" size="12" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="33" type="rgb"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="4"/>
-            <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre de la nueva persona"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtNSencillos">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Helvetica Neue" size="12" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="33" type="rgb"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="4"/>
-            <Property name="toolTipText" type="java.lang.String" value="Ingrese la fecha de nacimiento de la nueva persona (01/01/1990)"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="btnAceptar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -412,35 +308,15 @@
             <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre de la nueva persona"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Label" name="lblNConciertos">
+        <Component class="java.awt.Label" name="lblNComposiciones">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Grande" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Numero de Conciertos"/>
+            <Property name="text" type="java.lang.String" value="Numero de Composiciones"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Label" name="lblNGiras">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lucida Grande" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Numero de Giras"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtNConciertos">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Helvetica Neue" size="12" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="33" type="rgb"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="4"/>
-            <Property name="toolTipText" type="java.lang.String" value="Ingrese la cedula de la nueva persona"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtNGiras">
+        <Component class="javax.swing.JTextField" name="txtNComposiciones">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Helvetica Neue" size="12" style="1"/>
@@ -460,9 +336,6 @@
               </StringArray>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxNacionalidadActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>

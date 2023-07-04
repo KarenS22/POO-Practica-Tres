@@ -26,34 +26,41 @@ public class Compositor extends Persona {
     //sobreescritura metodo calcularSalario, dependiendo las condiciones el salario aumenta
     @Override
     public double calcularSalario() {
-        double salariob = super.getSalario();
-        double salariofinal = salariob;
-        double aumento = 0;
+        double salarioFinal = getSalario();
         if (numeroDeComposiciones >= 5){
-            salariofinal += 300;
+            double comisicion = 300;
+            salarioFinal += comisicion;
         } else if (cancionesTop100Billboard.size()>=1 && cancionesTop100Billboard.size()<=3){
-            aumento += (salariob * 0.1);
+            double aumento = salarioFinal * 0.1;
+            salarioFinal += aumento;
         } else if(cancionesTop100Billboard.size()>=4 && cancionesTop100Billboard.size()<=6){
-            aumento += (salariob * 0.2);
+            double comision2 = (salarioFinal * 0.2);
+            salarioFinal += comision2;
         } else if (cancionesTop100Billboard.size()> 6){
-            aumento += (salariob * 0.2);
+            double aumento2 = (salarioFinal * 0.2);
+            salarioFinal += aumento2;
         }
-        super.setSalario(salariofinal + aumento);
-        return super.getSalario();
+        this.salario = salarioFinal;
+        return this.salario;
     }
-    
+
     /*
     metodo agregarCancion donde se tiene que poner 4 parametros de entrada que crearan 
     un objeto cancion que luego sera agregado a la lista cancionesTop100Billboard
     */
-    public void agregarCancion(Cancion cancion){
-        cancionesTop100Billboard.add(cancion);
+
+    public void agregarCancion(int codigoCancion, String titulo, String letra, double tiempoEnMinutos){
+        cancionesTop100Billboard.add(new Cancion(codigoCancion, titulo, letra, tiempoEnMinutos));
     }
     //metodo si se quiere actualizar los datos de de las canciones
-    public void actualizarCancion(Cancion cancion){
-        if (cancionesTop100Billboard.contains(cancion)){
-            int index = cancionesTop100Billboard.indexOf(cancion);
-            cancionesTop100Billboard.set(index, cancion);
+    public void actualizarCancion(int codigoCancion, String titulo, String letra, double tiempoEnMinutos){
+        for (int i = 0; i < cancionesTop100Billboard.size(); i++) {
+            if (cancionesTop100Billboard.get(i).getCodigo() == codigoCancion){
+                Cancion cancion = cancionesTop100Billboard.get(i);
+                cancion.setTitulo(titulo);
+                cancion.setLetra(letra);
+                cancion.setTiempoEnMinutos(tiempoEnMinutos);
+            }
         }
     }
     // metodo para eliminar la cancion
@@ -69,7 +76,12 @@ public class Compositor extends Persona {
     }
     
     public Cancion buscarCancion(int id){
-        return cancionesTop100Billboard.get(id);
+        for (int i = 0; i < cancionesTop100Billboard.size(); i++) {
+            if (cancionesTop100Billboard.get(i).getCodigo() == id){
+                return cancionesTop100Billboard.get(i);
+            }   
+        }
+        return null;
     }
     /*
     metodo agregarCliente se pone un objeto tipo Cantante que luego sera 
@@ -97,7 +109,12 @@ public class Compositor extends Persona {
         return clientes;
     }
     public Cantante buscarCli(int id){
-        return clientes.get(id);
+       for (int i = 0; i < clientes.size(); i++) {
+            if (clientes.get(i).getCodigo() == id){
+                return clientes.get(i);
+            }   
+        }
+        return null;
     }
        //getters and setters
     public int getNumeroDeComposiciones() {

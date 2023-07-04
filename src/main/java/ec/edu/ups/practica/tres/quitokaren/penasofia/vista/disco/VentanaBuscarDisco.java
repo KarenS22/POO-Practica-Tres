@@ -7,21 +7,48 @@ package ec.edu.ups.practica.tres.quitokaren.penasofia.vista.disco;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.controlador.ControladorCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Cantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Disco;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
 
 /**
  *
  * @author ACER
  */
 public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
+
     private ControladorCantante controladorCantante;
-    
+    private ResourceBundle mensajes;
+
     /**
      * Creates new form VentanaAgregarDisco
      */
     public VentanaBuscarDisco(ControladorCantante controladorCantante) {
         initComponents();
         this.controladorCantante = controladorCantante;
+    }
+
+    public void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
+        lblNombre.setText(mensajes.getString("lbl.nombre"));
+        lblApellido.setText(mensajes.getString("lbl.apellido"));
+        lblCodigo.setText(mensajes.getString("lbl.codigo"));
+        lblNombreArtisticoCant.setText(mensajes.getString("lbl.nombreArtistico"));
+        lblGeneroMusicalCant.setText(mensajes.getString("lbl.generoMusical"));
+        lblNombreDisco.setText(mensajes.getString("lbl.nombre"));
+        lblCodigoDisco.setText(mensajes.getString("lbl.codigo"));
+        lblAnioLanzamientoDisco.setText(mensajes.getString("lbl.anioLanzamiento"));
+        btnBuscar.setText(mensajes.getString("menu.item.buscar"));
+        btnBuscarDisco.setText(mensajes.getString("menu.item.buscar"));
+        btnCancelar.setText(mensajes.getString("btn.Cancelar"));
+        String borderTitle = mensajes.getString("jpanel.busDisco");
+        Border border = BorderFactory.createTitledBorder(borderTitle);
+        jPanel2.setBorder(border);
+        String borderTitle2 = mensajes.getString("jpanel.buscarCant");
+        Border border2 = BorderFactory.createTitledBorder(borderTitle2);
+        jPanel1.setBorder(border2);
     }
 
     /**
@@ -331,12 +358,12 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
         String codigoS = txtCodigo.getText();
         int codigo = Integer.parseInt(codigoS);
         Cantante cantante = controladorCantante.buscar(codigo);
-        if (cantante != null){
+        if (cantante != null) {
             txtNombre.setText(cantante.getNombre());
             txtApellido.setText(cantante.getApellido());
             txtNombreArtistico.setText(cantante.getNombreArtistico());
             txtGeneroMusical.setText(cantante.getGeneroMusical());
-            
+
             this.cambiarEstadoCampos(true);
         } else {
             JOptionPane.showMessageDialog(this, "El cantante con codigo " + codigo + " no ha sido encontrado!");
@@ -361,21 +388,21 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
         int codigoC = Integer.parseInt(txtCodigo.getText());
         String codigoSD = txtCodigoDisco.getText();
         int codigoDisco = Integer.parseInt(codigoSD);
-        
+
         Disco disco = controladorCantante.verDisco(codigoC, codigoDisco);
-        if (disco != null){
+        if (disco != null) {
             txtCodigoDisco.setText(String.valueOf(disco.getCodigo()));
             txtNombreDisco.setText(disco.getNombre());
             txtAnioLanzamientoDisco.setText(String.valueOf(disco.getAnioDeLazamiento()));
             this.cambiarEstadoCampos(false);
-           // txtCodigo.setEnabled(true);
-        }else{
+            // txtCodigo.setEnabled(true);
+        } else {
             JOptionPane.showMessageDialog(this, "El disco con codigo " + txtCodigoDisco.getText() + "no ha sido encontrado! :(");
 
         }
     }//GEN-LAST:event_btnBuscarDiscoActionPerformed
 
-       private void limpiarCampos(){
+    private void limpiarCampos() {
         this.txtCodigo.setText("");
         this.txtNombre.setText("");
         this.txtApellido.setText("");
@@ -385,7 +412,8 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
         this.txtNombreDisco.setText("");
         this.txtAnioLanzamientoDisco.setText("");
     }
-           private void cambiarEstadoCampos(boolean estado) {
+
+    private void cambiarEstadoCampos(boolean estado) {
         this.txtCodigo.setEnabled(!estado);
         this.txtCodigoDisco.setEnabled(estado);
     }

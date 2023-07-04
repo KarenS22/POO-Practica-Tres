@@ -40,10 +40,14 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
         lblAnioLanzamientoDisco.setText(mensajes.getString("lbl.anioLanzamiento"));
         btnAceptar.setText(mensajes.getString("btn.aceptar"));
         btnBuscar.setText(mensajes.getString("menu.item.buscar"));
+        btnBuscarDisco.setText(mensajes.getString("menu.item.buscar"));
         btnCancelar.setText(mensajes.getString("btn.Cancelar"));
-        String borderTitle = mensajes.getString("jpanel.creaDisco");
+        String borderTitle = mensajes.getString("jpanel.actDisco");
             Border border = BorderFactory.createTitledBorder(borderTitle);
-        jPanel1.setBorder(border);
+        jPanel2.setBorder(border);
+        String borderTitle2 = mensajes.getString("jpanel.buscarCant");
+        Border border2 = BorderFactory.createTitledBorder(borderTitle2);
+        jPanel1.setBorder(border2);
     }
     /**
      * This method is called from within the constructor to initialize the form.

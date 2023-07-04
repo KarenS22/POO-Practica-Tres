@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package ec.edu.ups.practica.tres.quitokaren.penasofia.vista.disco;
+package ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cancion;
 
-import ec.edu.ups.practica.tres.quitokaren.penasofia.controlador.ControladorCantante;
-import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Cantante;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.controlador.ControladorCompositor;
+import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Compositor;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.BorderFactory;
@@ -16,17 +16,17 @@ import javax.swing.border.Border;
  *
  * @author ACER
  */
-public class VentanaAgregarDisco extends javax.swing.JInternalFrame {
+public class VentanaAgregarCancion extends javax.swing.JInternalFrame {
 
-    private ControladorCantante controladorCantante;
+    private ControladorCompositor controladorCompositor;
     private ResourceBundle mensajes;
 
     /**
      * Creates new form VentanaAgregarDisco
      */
-    public VentanaAgregarDisco(ControladorCantante controladorCantante) {
+    public VentanaAgregarCancion(ControladorCompositor controladorCompositor) {
         initComponents();
-        this.controladorCantante = controladorCantante;
+        this.controladorCompositor = controladorCompositor;
     }
 
     public void cambiarIdioma(Locale localizacion) {
@@ -34,20 +34,18 @@ public class VentanaAgregarDisco extends javax.swing.JInternalFrame {
         lblNombre.setText(mensajes.getString("lbl.nombre"));
         lblApellido.setText(mensajes.getString("lbl.apellido"));
         lblCodigo.setText(mensajes.getString("lbl.codigo"));
-        lblNombreArtisticoCant.setText(mensajes.getString("lbl.nombreArtistico"));
-        lblGeneroMusicalCant.setText(mensajes.getString("lbl.generoMusical"));
-        lblNombreDisco.setText(mensajes.getString("lbl.nombre"));
-        lblCodigoDisco.setText(mensajes.getString("lbl.codigo"));
-        lblAnioLanzamientoDisco.setText(mensajes.getString("lbl.anioLanzamiento"));
+        lblTitulo.setText(mensajes.getString("lbl.titulo"));
+        lblCodigoCancion.setText(mensajes.getString("lbl.codigo"));
+        lblTiempoMinutos.setText(mensajes.getString("lbl.tiempoMinutos"));
         btnAceptar.setText(mensajes.getString("btn.aceptar"));
         btnBuscar.setText(mensajes.getString("menu.item.buscar"));
         btnCancelar.setText(mensajes.getString("btn.Cancelar"));
-        String borderTitle = mensajes.getString("jpanel.creaDisco");
+        String borderTitle = mensajes.getString("jpanel.buscarCompositor");
         Border border = BorderFactory.createTitledBorder(borderTitle);
-        jPanel2.setBorder(border);
-        String borderTitle2 = mensajes.getString("jpanel.buscarCant");
+        jPanel1.setBorder(border);
+        String borderTitle2 = mensajes.getString("jpanel.crearCancion");
         Border border2 = BorderFactory.createTitledBorder(borderTitle2);
-        jPanel1.setBorder(border2);
+        jPanel2.setBorder(border2);
     }
 
     /**
@@ -64,21 +62,19 @@ public class VentanaAgregarDisco extends javax.swing.JInternalFrame {
         txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
-        lblNombreArtisticoCant = new java.awt.Label();
-        lblGeneroMusicalCant = new java.awt.Label();
         lblCodigo = new java.awt.Label();
         lblNombre = new java.awt.Label();
         lblApellido = new java.awt.Label();
-        txtGeneroMusical = new javax.swing.JTextField();
-        txtNombreArtistico = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        txtCodigoDisco = new javax.swing.JTextField();
-        txtNombreDisco = new javax.swing.JTextField();
-        txtAnioLanzamientoDisco = new javax.swing.JTextField();
-        lblCodigoDisco = new java.awt.Label();
-        lblNombreDisco = new java.awt.Label();
-        lblAnioLanzamientoDisco = new java.awt.Label();
+        txtCodigoCancion = new javax.swing.JTextField();
+        txtTitulo = new javax.swing.JTextField();
+        txtTiempoMinutos = new javax.swing.JTextField();
+        lblCodigoCancion = new java.awt.Label();
+        lblTitulo = new java.awt.Label();
+        lblTiempoMinutos = new java.awt.Label();
+        lblLetraCancion = new java.awt.Label();
+        txtLetra = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
 
         setClosable(true);
@@ -106,7 +102,7 @@ public class VentanaAgregarDisco extends javax.swing.JInternalFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(236, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Buscar Cantante", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 14))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Buscar Compositor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 14))); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(860, 206));
 
         txtCodigo.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
@@ -139,12 +135,6 @@ public class VentanaAgregarDisco extends javax.swing.JInternalFrame {
             }
         });
 
-        lblNombreArtisticoCant.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        lblNombreArtisticoCant.setText("Nombre Artistico");
-
-        lblGeneroMusicalCant.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        lblGeneroMusicalCant.setText("Genero Musical");
-
         lblCodigo.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblCodigo.setText("Codigo");
 
@@ -153,23 +143,6 @@ public class VentanaAgregarDisco extends javax.swing.JInternalFrame {
 
         lblApellido.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblApellido.setText("Apellido");
-
-        txtGeneroMusical.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        txtGeneroMusical.setForeground(new java.awt.Color(51, 102, 255));
-        txtGeneroMusical.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtGeneroMusical.setToolTipText("");
-        txtGeneroMusical.setEnabled(false);
-        txtGeneroMusical.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGeneroMusicalActionPerformed(evt);
-            }
-        });
-
-        txtNombreArtistico.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        txtNombreArtistico.setForeground(new java.awt.Color(51, 102, 255));
-        txtNombreArtistico.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtNombreArtistico.setToolTipText("");
-        txtNombreArtistico.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -186,20 +159,9 @@ public class VentanaAgregarDisco extends javax.swing.JInternalFrame {
                     .addComponent(txtApellido, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblGeneroMusicalCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNombreArtisticoCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtNombreArtistico, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtGeneroMusical, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBuscar)))
-                .addGap(0, 229, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnBuscar)
+                .addGap(0, 480, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,23 +173,13 @@ public class VentanaAgregarDisco extends javax.swing.JInternalFrame {
                     .addComponent(lblCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNombreArtisticoCant, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombreArtistico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblGeneroMusicalCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtGeneroMusical, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(70, Short.MAX_VALUE))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cancel.24.png"))); // NOI18N
@@ -239,40 +191,49 @@ public class VentanaAgregarDisco extends javax.swing.JInternalFrame {
         });
 
         jPanel2.setBackground(new java.awt.Color(236, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Agregar Disco", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 14))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Agregar Cancion", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 14))); // NOI18N
         jPanel2.setPreferredSize(new java.awt.Dimension(860, 167));
 
-        txtCodigoDisco.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        txtCodigoDisco.setForeground(new java.awt.Color(51, 102, 255));
-        txtCodigoDisco.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtCodigoDisco.setToolTipText("Ingrese el codigo del cantante");
-        txtCodigoDisco.setEnabled(false);
+        txtCodigoCancion.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        txtCodigoCancion.setForeground(new java.awt.Color(51, 102, 255));
+        txtCodigoCancion.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtCodigoCancion.setToolTipText("Ingrese el codigo del cantante");
+        txtCodigoCancion.setEnabled(false);
 
-        txtNombreDisco.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        txtNombreDisco.setForeground(new java.awt.Color(51, 102, 255));
-        txtNombreDisco.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtNombreDisco.setToolTipText("");
-        txtNombreDisco.setEnabled(false);
+        txtTitulo.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        txtTitulo.setForeground(new java.awt.Color(51, 102, 255));
+        txtTitulo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtTitulo.setToolTipText("");
+        txtTitulo.setEnabled(false);
 
-        txtAnioLanzamientoDisco.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        txtAnioLanzamientoDisco.setForeground(new java.awt.Color(51, 102, 255));
-        txtAnioLanzamientoDisco.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtAnioLanzamientoDisco.setToolTipText("");
-        txtAnioLanzamientoDisco.setEnabled(false);
-        txtAnioLanzamientoDisco.addActionListener(new java.awt.event.ActionListener() {
+        txtTiempoMinutos.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        txtTiempoMinutos.setForeground(new java.awt.Color(51, 102, 255));
+        txtTiempoMinutos.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtTiempoMinutos.setToolTipText("");
+        txtTiempoMinutos.setEnabled(false);
+        txtTiempoMinutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAnioLanzamientoDiscoActionPerformed(evt);
+                txtTiempoMinutosActionPerformed(evt);
             }
         });
 
-        lblCodigoDisco.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        lblCodigoDisco.setText("Codigo");
+        lblCodigoCancion.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblCodigoCancion.setText("Codigo");
 
-        lblNombreDisco.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        lblNombreDisco.setText("Nombre");
+        lblTitulo.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblTitulo.setText("Titulo");
 
-        lblAnioLanzamientoDisco.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        lblAnioLanzamientoDisco.setText("Año de lanzamiento");
+        lblTiempoMinutos.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblTiempoMinutos.setText("Tiempo en minutos");
+
+        lblLetraCancion.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblLetraCancion.setText("Letra");
+
+        txtLetra.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        txtLetra.setForeground(new java.awt.Color(51, 102, 255));
+        txtLetra.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtLetra.setToolTipText("");
+        txtLetra.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -281,33 +242,41 @@ public class VentanaAgregarDisco extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombreDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCodigoDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAnioLanzamientoDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCodigoCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTiempoMinutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtAnioLanzamientoDisco, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNombreDisco, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCodigoDisco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 499, Short.MAX_VALUE))
+                    .addComponent(txtTiempoMinutos, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTitulo, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCodigoCancion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addComponent(lblLetraCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(txtLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 110, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtCodigoDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombreDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNombreDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(txtCodigoCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblLetraCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(19, 19, 19)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAnioLanzamientoDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAnioLanzamientoDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblCodigoDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                            .addComponent(lblTiempoMinutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTiempoMinutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblCodigoCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Accept.24.png"))); // NOI18N
@@ -325,7 +294,7 @@ public class VentanaAgregarDisco extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(247, 247, 247)
+                        .addGap(265, 265, 265)
                         .addComponent(btnAceptar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnCancelar))
@@ -341,9 +310,9 @@ public class VentanaAgregarDisco extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
@@ -366,21 +335,15 @@ public class VentanaAgregarDisco extends javax.swing.JInternalFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         String codigoS = txtCodigo.getText();
         int codigo = Integer.parseInt(codigoS);
-        Cantante cantante = controladorCantante.buscar(codigo);
-        if (cantante != null) {
-            txtNombre.setText(cantante.getNombre());
-            txtApellido.setText(cantante.getApellido());
-            txtNombreArtistico.setText(cantante.getNombreArtistico());
-            txtGeneroMusical.setText(cantante.getGeneroMusical());
+        Compositor compositor = controladorCompositor.buscar(codigo);
+        if (compositor != null) {
+            txtNombre.setText(compositor.getNombre());
+            txtApellido.setText(compositor.getApellido());
             this.cambiarEstadoCampos(true);
         } else {
             JOptionPane.showMessageDialog(this, "La persona con codigo " + codigo + " no ha sido encontrada!");
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void txtGeneroMusicalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroMusicalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtGeneroMusicalActionPerformed
 
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
         // TODO add your handling code here:
@@ -388,24 +351,25 @@ public class VentanaAgregarDisco extends javax.swing.JInternalFrame {
         this.cambiarEstadoCampos(false);
     }//GEN-LAST:event_formInternalFrameClosing
 
-    private void txtAnioLanzamientoDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioLanzamientoDiscoActionPerformed
+    private void txtTiempoMinutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTiempoMinutosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAnioLanzamientoDiscoActionPerformed
+    }//GEN-LAST:event_txtTiempoMinutosActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         int codigoC = Integer.parseInt(txtCodigo.getText());
-        String codigoSD = txtCodigoDisco.getText();
-        int codigoDisco = Integer.parseInt(codigoSD);
-        String nombreDisco = txtNombreDisco.getText();
-        int anioDeLanzamiento = Integer.parseInt(txtAnioLanzamientoDisco.getText());
+        String codigoSD = txtCodigoCancion.getText();
+        int codigoCancion = Integer.parseInt(codigoSD);
+        String titulo = txtTitulo.getText();
+        String letra = txtLetra.getText();
+        double tiempoMinutos = Double.parseDouble(txtTiempoMinutos.getText());
 
-        boolean b = controladorCantante.ingresarDisco(codigoC, codigoDisco, nombreDisco, anioDeLanzamiento);
+        boolean b = controladorCompositor.ingresarCancion(codigoCancion, codigoCancion, titulo, letra, tiempoMinutos);
         if (b) {
-            JOptionPane.showMessageDialog(this, "El disco ha sido creado exitosamente! :)");
+            JOptionPane.showMessageDialog(this, "La cancion ha sido creado exitosamente! :)");
             this.limpiarCampos();
             this.cambiarEstadoCampos(false);
         } else {
-            JOptionPane.showMessageDialog(this, "El disco no ha sido creado! :(");
+            JOptionPane.showMessageDialog(this, "La cancion no ha sido creado! :(");
 
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
@@ -414,18 +378,18 @@ public class VentanaAgregarDisco extends javax.swing.JInternalFrame {
         this.txtCodigo.setText("");
         this.txtNombre.setText("");
         this.txtApellido.setText("");
-        this.txtNombreArtistico.setText("");
-        this.txtGeneroMusical.setText("");
-        this.txtCodigoDisco.setText("");
-        this.txtNombreDisco.setText("");
-        this.txtAnioLanzamientoDisco.setText("");
+        this.txtLetra.setText("");
+        this.txtCodigoCancion.setText("");
+        this.txtTitulo.setText("");
+        this.txtTiempoMinutos.setText("");
     }
 
     private void cambiarEstadoCampos(boolean estado) {
         this.txtCodigo.setEnabled(!estado);
-        this.txtCodigoDisco.setEnabled(estado);
-        this.txtNombreDisco.setEnabled(estado);
-        this.txtAnioLanzamientoDisco.setEnabled(estado);
+        this.txtCodigoCancion.setEnabled(estado);
+        this.txtTitulo.setEnabled(estado);
+        this.txtLetra.setEnabled(estado);
+        this.txtTiempoMinutos.setEnabled(estado);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -434,21 +398,19 @@ public class VentanaAgregarDisco extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private java.awt.Label lblAnioLanzamientoDisco;
     private java.awt.Label lblApellido;
     private java.awt.Label lblCodigo;
-    private java.awt.Label lblCodigoDisco;
-    private java.awt.Label lblGeneroMusicalCant;
+    private java.awt.Label lblCodigoCancion;
+    private java.awt.Label lblLetraCancion;
     private java.awt.Label lblNombre;
-    private java.awt.Label lblNombreArtisticoCant;
-    private java.awt.Label lblNombreDisco;
-    private javax.swing.JTextField txtAnioLanzamientoDisco;
+    private java.awt.Label lblTiempoMinutos;
+    private java.awt.Label lblTitulo;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtCodigoDisco;
-    private javax.swing.JTextField txtGeneroMusical;
+    private javax.swing.JTextField txtCodigoCancion;
+    private javax.swing.JTextField txtLetra;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtNombreArtistico;
-    private javax.swing.JTextField txtNombreDisco;
+    private javax.swing.JTextField txtTiempoMinutos;
+    private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

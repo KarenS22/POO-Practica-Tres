@@ -6,14 +6,18 @@ import ec.edu.ups.practica.tres.quitokaren.penasofia.controlador.ControladorCant
 import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Cantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Disco;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
 
 public class VentanaListarDisco extends javax.swing.JInternalFrame {
 
     private ControladorCantante controladorCantante;
-
+    private ResourceBundle mensajes;
     /**
      * Creates new form VentanaListarPersona
      */
@@ -21,7 +25,19 @@ public class VentanaListarDisco extends javax.swing.JInternalFrame {
         initComponents();
         this.controladorCantante = controladorCantante;
     }
-
+public void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
+        lblNombre.setText(mensajes.getString("lbl.nombre"));
+        lblCodigo.setText(mensajes.getString("lbl.codigo"));
+        btnBuscar.setText(mensajes.getString("menu.item.buscar"));
+        btnCancelar.setText(mensajes.getString("btn.Cancelar"));
+        String borderTitle = mensajes.getString("jpanel.listarDisco");
+            Border border = BorderFactory.createTitledBorder(borderTitle);
+        jPanel1.setBorder(border);
+        String borderTitle2 = mensajes.getString("jpanel.buscarCant");
+        Border border2 = BorderFactory.createTitledBorder(borderTitle2);
+        jPanel2.setBorder(border2);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -88,6 +104,7 @@ public class VentanaListarDisco extends javax.swing.JInternalFrame {
         tblDiscos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(tblDiscos);
 
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cancel.24.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,8 +130,8 @@ public class VentanaListarDisco extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(btnCancelar)
                 .addContainerGap())
         );
@@ -193,8 +210,7 @@ public class VentanaListarDisco extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -226,16 +242,6 @@ public class VentanaListarDisco extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void cargarDatosTabla() {
-       /* String codigoS = txtCodigo.getText();
-        int codigo = Integer.parseInt(codigoS);
-        Cantante cantante = controladorCantante.buscar(codigo);
-        if (cantante != null){
-            txtNombre.setText(cantante.getNombre());
-            txtNombre.setEnabled(false);
-        } else {
-            JOptionPane.showMessageDialog(this, "El cantante con codigo " + codigo + " no ha sido encontrado!");
-            
-        }*/
         DefaultTableModel modelo = (DefaultTableModel) this.tblDiscos.getModel();
         modelo.setNumRows(0);
         

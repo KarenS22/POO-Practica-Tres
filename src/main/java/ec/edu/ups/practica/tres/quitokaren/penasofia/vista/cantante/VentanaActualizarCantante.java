@@ -3,9 +3,13 @@ package ec.edu.ups.practica.tres.quitokaren.penasofia.vista.cantante;
 
 import ec.edu.ups.practica.tres.quitokaren.penasofia.controlador.ControladorCantante;
 import ec.edu.ups.practica.tres.quitokaren.penasofia.modelo.Cantante;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
@@ -45,6 +49,7 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
         lblNConciertosCant.setText(mensajes.getString("lbl.nConciertos"));
         lblNGirasCant.setText(mensajes.getString("lbl.nGiras"));
         btnBuscar.setText(mensajes.getString("menu.item.buscar"));
+        btnAceptar.setText(mensajes.getString("btn.aceptar"));
         btnCancelar.setText(mensajes.getString("btn.Cancelar"));
         String borderTitle = mensajes.getString("jpanel.actCant");
         Border border = BorderFactory.createTitledBorder(borderTitle);
@@ -83,9 +88,9 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
         lblNSencillosCant = new java.awt.Label();
         txtEdad = new javax.swing.JTextField();
         lblEdad = new java.awt.Label();
-        txtNacionalidad = new javax.swing.JTextField();
         lblNacionalidadCant = new java.awt.Label();
         btnAceptar = new javax.swing.JButton();
+        cbxNacionalidad = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -94,6 +99,7 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
         setResizable(true);
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
             }
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -229,12 +235,6 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
         lblEdad.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblEdad.setText("Edad");
 
-        txtNacionalidad.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        txtNacionalidad.setForeground(new java.awt.Color(51, 102, 255));
-        txtNacionalidad.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtNacionalidad.setToolTipText("");
-        txtNacionalidad.setEnabled(false);
-
         lblNacionalidadCant.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblNacionalidadCant.setText("Nacionalidad");
 
@@ -243,6 +243,14 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
+            }
+        });
+
+        cbxNacionalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Seleccione un pais---" }));
+        cbxNacionalidad.setEnabled(false);
+        cbxNacionalidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxNacionalidadActionPerformed(evt);
             }
         });
 
@@ -282,8 +290,8 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
                             .addComponent(lblNacionalidadCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxNacionalidad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addComponent(btnBuscar))
@@ -314,23 +322,23 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblNacionalidadCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnBuscar))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
-                                .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(59, 59, 59)
+                                .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblNacionalidadCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbxNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(74, 74, 74)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtNSencillos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblNSencillosCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -366,7 +374,7 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnAceptar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -412,17 +420,18 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
             txtNombre.setText(cantan.getNombre());
             txtApellido.setText(cantan.getApellido());
             txtEdad.setText(String.valueOf(cantan.getEdad()));
-            txtNacionalidad.setText(cantan.getNacionalidad());
+            cbxNacionalidad.setSelectedItem(cantan.getNacionalidad());
             txtSalario.setText(String.valueOf(cantan.calcularSalario()));
             txtNombreArtistico.setText(cantan.getNombreArtistico());
             txtGeneroMusical.setText(cantan.getGeneroMusical());
             txtNSencillos.setText(String.valueOf(cantan.getNumeroDeSencillos()));
             txtNConciertos.setText(String.valueOf(cantan.getNumeroDeConciertos()));
             txtNGiras.setText(String.valueOf(cantan.getNumeroDeGiras()));
+            this.cambiarEstadoCampos(true);
+            txtCodigo.setEnabled(false);
         } else {
             JOptionPane.showMessageDialog(this, "La persona con codigo " + codigo + " no ha sido encontrada!");
-        }
-        this.cambiarEstadoCampos(true);
+        }  
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
@@ -432,7 +441,7 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
         String apellido = txtApellido.getText();
         String edadS = txtEdad.getText();
         int edad = Integer.parseInt(edadS);
-        String nacionalidad = txtNacionalidad.getText();
+        String nacionalidad = (String) cbxNacionalidad.getSelectedItem();
         String salarioS = txtSalario.getText();
         double salario = Double.parseDouble(salarioS);
         String nombreArtistico = txtNombreArtistico.getText();
@@ -455,12 +464,51 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
+    private void cbxNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxNacionalidadActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_cbxNacionalidadActionPerformed
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        // TODO add your handling code here:
+         String rutaArchivo = "src/main/resources/paises.csv";
+        // Cargar datos del archivo Excel en el JComboBox
+        cargarDatosExcel(rutaArchivo, cbxNacionalidad, Locale.getDefault().getLanguage());
+    }//GEN-LAST:event_formInternalFrameActivated
+
+    private void cargarDatosExcel(String rutaArchivo, JComboBox<String> comboBox, String idioma) {
+        DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>();
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(rutaArchivo));
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] valores = linea.replaceAll("\"", "").split(",");
+                if (valores.length > 0) {
+                    String valor;
+                    if (idioma.equals("en")) {
+                        valor = valores[0]; // Columna para idioma ingles
+                    } else if (idioma.equals("es")) {
+                        valor = valores[1]; // Columna para idioma español
+                    } else {
+                        valor = valores[2]; // Columna para idioma frances
+                    }
+                    comboBoxModel.addElement(valor);
+                }
+            }
+            br.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("no se puedo");
+        }
+        comboBox.setModel(comboBoxModel);
+    }
     private void limpiarCampos() {
         this.txtCodigo.setText("");
         this.txtNombre.setText("");
         this.txtApellido.setText("");
         this.txtEdad.setText("");
-        this.txtNacionalidad.setText("");
+        this.cbxNacionalidad.setSelectedIndex(0);
         this.txtSalario.setText("");
         this.txtNombreArtistico.setText("");
         this.txtGeneroMusical.setText("");
@@ -474,7 +522,7 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
         this.txtNombre.setEnabled(estado);
         this.txtApellido.setEnabled(estado);
         this.txtEdad.setEnabled(estado);
-        this.txtNacionalidad.setEnabled(estado);
+        this.cbxNacionalidad.setEnabled(estado);
         this.txtSalario.setEnabled(estado);
         this.txtNombreArtistico.setEnabled(estado);
         this.txtGeneroMusical.setEnabled(estado);
@@ -487,6 +535,7 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JComboBox<String> cbxNacionalidad;
     private javax.swing.JPanel jPanel1;
     private java.awt.Label lblApellido;
     private java.awt.Label lblCodigo;
@@ -506,7 +555,6 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtNConciertos;
     private javax.swing.JTextField txtNGiras;
     private javax.swing.JTextField txtNSencillos;
-    private javax.swing.JTextField txtNacionalidad;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombreArtistico;
     private javax.swing.JTextField txtSalario;

@@ -87,6 +87,23 @@ public class VentanaEliminarCantante extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(229, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Eliminar Persona", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 14))); // NOI18N
@@ -382,6 +399,7 @@ public class VentanaEliminarCantante extends javax.swing.JInternalFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.limpiarCampos();
+        txtCodigo.setEnabled(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -400,6 +418,7 @@ public class VentanaEliminarCantante extends javax.swing.JInternalFrame {
             txtNSencillos.setText(String.valueOf(cantan.getNumeroDeSencillos()));
             txtNConciertos.setText(String.valueOf(cantan.getNumeroDeConciertos()));
             txtNGiras.setText(String.valueOf(cantan.getNumeroDeGiras()));
+            txtCodigo.setEnabled(false);
         } else {
             JOptionPane.showMessageDialog(this, "La persona con codigo " + codigo + " no ha sido encontrada!");
         }
@@ -412,6 +431,11 @@ public class VentanaEliminarCantante extends javax.swing.JInternalFrame {
     private void txtNSencillosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNSencillosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNSencillosActionPerformed
+
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        // TODO add your handling code here:
+        this.limpiarCampos();
+    }//GEN-LAST:event_formInternalFrameClosing
 
     private void limpiarCampos() {
         this.txtCodigo.setText("");
